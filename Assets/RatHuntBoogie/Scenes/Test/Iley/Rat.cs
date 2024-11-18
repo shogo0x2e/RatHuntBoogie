@@ -1,43 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Rat : MonoBehaviour
-{
-	private NavMeshAgent _agent;
-	
-	public GameObject Player;
+public class Rat : MonoBehaviour {
+    private NavMeshAgent _agent;
 
-	public float EnemyDistanceRun = 4.0f;
+    public GameObject Player;
 
-	private Animator animator;
+    public float EnemyDistanceRun = 4.0f;
 
-	void Start()
-	{
-		_agent = GetComponent<NavMeshAgent>();
-		
-		animator = GetComponent<Animator>();
-	}
+    private Animator animator;
 
-	void Update()
-	{
-		float distance = Vector3.Distance(transform.position, Player.transform.position);
+    public void Start() {
+        _agent = GetComponent<NavMeshAgent>();
 
-		Debug.Log("Distance:" + distance);
+        animator = GetComponent<Animator>();
+    }
 
-		if(distance < EnemyDistanceRun)
-		{
-			animator.SetBool("IsMoving", true);
-			Vector3 dirToPlayer = transform.position - Player.transform.position;
+    public void Update() {
+        float distance = Vector3.Distance(transform.position, Player.transform.position);
 
-			Vector3 newPos = transform.position = dirToPlayer;
+        Debug.Log("Distance:" + distance);
 
-			agent.SetDestination(newPos);
-		}
-		else
-		{
-			animator.SetBool("IsMoving", false)
-		}
-	}
+        if (distance < EnemyDistanceRun) {
+            animator.SetBool("IsMoving", true);
+            Vector3 dirToPlayer = transform.position - Player.transform.position;
+
+            Vector3 newPos = transform.position = dirToPlayer;
+
+            _agent.SetDestination(newPos);
+        } else {
+            animator.SetBool("IsMoving", false);
+        }
+    }
 }
