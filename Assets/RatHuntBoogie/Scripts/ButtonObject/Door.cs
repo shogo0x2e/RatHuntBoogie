@@ -14,7 +14,7 @@ public class Door : ButtonObject {
     private Coroutine slidingCoroutine = null;
 
     public void Start() {
-        totalSlideAmount = glassChild.transform.localScale.x;
+        totalSlideAmount = glassChild.transform.localScale.x - 0.1F;
     }
 
     public void Update() {
