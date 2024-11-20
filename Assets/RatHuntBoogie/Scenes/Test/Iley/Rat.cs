@@ -10,10 +10,14 @@ public class Rat : MonoBehaviour {
 
     private Animator animator;
 
+    private AudioSource audioSource;
+
     public void Start() {
         _agent = GetComponent<NavMeshAgent>();
 
         animator = GetComponent<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Update() {
@@ -21,6 +25,10 @@ public class Rat : MonoBehaviour {
 
     if (distance < EnemyDistanceRun) {
         animator.SetBool("IsMoving", true);
+
+        if (!audioSource.isPlaying) {
+            audioSource.Play();
+        }
 
         Vector3 dirToPlayer = transform.position - Player.transform.position;
 
