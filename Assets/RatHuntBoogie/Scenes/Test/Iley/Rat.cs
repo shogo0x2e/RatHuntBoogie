@@ -17,19 +17,21 @@ public class Rat : MonoBehaviour {
     }
 
     public void Update() {
-        float distance = Vector3.Distance(transform.position, Player.transform.position);
+    float distance = Vector3.Distance(transform.position, Player.transform.position);
 
-        Debug.Log("Distance:" + distance);
+    if (distance < EnemyDistanceRun) {
+        animator.SetBool("IsMoving", true);
 
-        if (distance < EnemyDistanceRun) {
-            animator.SetBool("IsMoving", true);
-            Vector3 dirToPlayer = transform.position - Player.transform.position;
+        Vector3 dirToPlayer = transform.position - Player.transform.position;
 
-            Vector3 newPos = transform.position = dirToPlayer;
+        Vector3 runDirection = dirToPlayer.normalized;
 
-            _agent.SetDestination(newPos);
-        } else {
-            animator.SetBool("IsMoving", false);
-        }
+        Vector3 newPos = transform.position + runDirection * EnemyDistanceRun;
+
+        _agent.SetDestination(newPos);
+    } else {
+        animator.SetBool("IsMoving", false);
     }
+}
+
 }
