@@ -719,6 +719,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2529817820274194867, guid: d0dab663ca926334893ce6b419d735dc,
+        type: 3}
+      propertyPath: videoClips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529817820274194867, guid: d0dab663ca926334893ce6b419d735dc,
+        type: 3}
+      propertyPath: videoClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 32900000, guid: 90a710d7957918848b218342a8bb5cef,
+        type: 3}
     - target: {fileID: 7047096348153513377, guid: d0dab663ca926334893ce6b419d735dc,
         type: 3}
       propertyPath: m_LocalPosition.y
