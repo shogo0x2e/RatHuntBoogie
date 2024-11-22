@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 08f176c0293aead43b4a723031d05c3e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ab23e46216f81df4fb6f3e1c548daddd, type: 2}
 --- !u!1 &48576041
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +444,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
