@@ -13,9 +13,20 @@ public class Rat : MonoBehaviour {
     private AudioSource audioSource;
 
     // Random movement settings
-    public float randomMoveInterval = 5.0f; // Time between random movements
-    public float randomMoveRadius = 10.0f; // Radius for random movement
+    public float randomMoveInterval = 5.0f; 
+    public float randomMoveRadius = 10.0f; 
     private float randomMoveTimer;
+
+    
+    public float jumpIntervalMin = 2.0f; 
+    public float jumpIntervalMax = 5.0f; 
+    private float jumpTimer;
+    public float jumpHeight = 2.0f; 
+    public float jumpDuration = 0.5f; 
+    private bool isJumping = false;
+    private Vector3 jumpStartPosition;
+    private float jumpElapsedTime;
+    private Vector3 jumpDirection; 
 
     public void Start() {
         _agent = GetComponent<NavMeshAgent>();
@@ -24,15 +35,16 @@ public class Rat : MonoBehaviour {
 
         audioSource = GetComponent<AudioSource>();
 
-        // Initialize the timer with a random interval
         randomMoveTimer = Random.Range(1.0f, 10.0f);
+        jumpTimer = Random.Range(jumpIntervalMin, jumpIntervalMax);
     }
 
     public void Update() {
         float distance = Vector3.Distance(transform.position, Player.transform.position);
 
+        // Run away from the player
         if (distance < EnemyDistanceRun) {
-            // Run away from the player
+            
             if (!audioSource.isPlaying) {
                 audioSource.Play();
             }
@@ -42,8 +54,10 @@ public class Rat : MonoBehaviour {
             Vector3 newPos = transform.position + runDirection * EnemyDistanceRun;
 
             _agent.SetDestination(newPos);
+
+        // Handle random movement
         } else {
-            // Handle random movement
+            
             randomMoveTimer -= Time.deltaTime;
 
             if (randomMoveTimer <= 0) {
@@ -59,15 +73,48 @@ public class Rat : MonoBehaviour {
             }
         }
 
-        // Smooth animation handling with precise stopping
+        // Handle random jumps
+        if (!isJumping) {
+            jumpTimer -= Time.deltaTime;
+
+            if (jumpTimer <= 0) {
+                isJumping = true;
+                jumpStartPosition = transform.position;
+                jumpElapsedTime = 0.0f;
+                jumpDirection = transform.forward * 1.0f; 
+                jumpTimer = Random.Range(jumpIntervalMin, jumpIntervalMax); 
+
+                animator.SetBool("IsJumping", true);
+            }
+        } else {
+            jumpElapsedTime += Time.deltaTime;
+
+            if (jumpElapsedTime <= jumpDuration) {
+                float normalizedTime = jumpElapsedTime / jumpDuration;
+                float verticalOffset = 4 * jumpHeight * normalizedTime * (1 - normalizedTime); 
+
+                // Move forward during the jump
+                transform.position = new Vector3(
+                    jumpStartPosition.x + jumpDirection.x * normalizedTime, 
+                    jumpStartPosition.y + verticalOffset, // vertical offset
+                    jumpStartPosition.z + jumpDirection.z * normalizedTime // forward in the Z direction
+                );
+            } else {
+                isJumping = false;
+                transform.position = new Vector3(
+                    jumpStartPosition.x + jumpDirection.x, 
+                    jumpStartPosition.y,
+                    jumpStartPosition.z + jumpDirection.z
+                );
+
+                animator.SetBool("IsJumping", false);
+            }
+        }
+
         if (_agent.remainingDistance > _agent.stoppingDistance || _agent.velocity.magnitude > 0.1f) {
-            // If the agent is still far from the target and moving
             animator.SetBool("IsMoving", true);
         } else {
-            // Agent is close enough to the destination or stopped
             animator.SetBool("IsMoving", false);
         }
     }
-
-
 }
