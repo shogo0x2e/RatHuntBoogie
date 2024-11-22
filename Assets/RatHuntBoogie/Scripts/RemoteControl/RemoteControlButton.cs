@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 public class RemoteControlButton : MonoBehaviour {
     [SerializeField] private UnityEvent onPress;
+    [SerializeField] private Vector3 pressedTargetPosition;
 
     private GameObject srcPresser;
     private AudioSource onPressSound;
@@ -16,7 +17,10 @@ public class RemoteControlButton : MonoBehaviour {
         onPressSound = GetComponent<AudioSource>();
 
         btBasePosition = transform.localPosition;
-        btPressedPosition = new Vector3(btBasePosition.x, 0.02F, btBasePosition.z);
+
+        btPressedPosition = pressedTargetPosition != Vector3.zero
+            ? pressedTargetPosition
+            : new Vector3(btBasePosition.x, 0.02F, btBasePosition.z);
     }
 
     public void OnTriggerEnter(Collider other) {
