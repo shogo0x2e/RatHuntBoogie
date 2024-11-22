@@ -21,7 +21,7 @@ public class ButtonVR : MonoBehaviour {
         onPressSound = GetComponent<AudioSource>();
 
         btBasePosition = transform.localPosition;
-        btPressedPosition = new Vector3(0, 0.0056f, 0);
+        btPressedPosition = new Vector3(btBasePosition.x, 0.0056F, btBasePosition.x);
     }
 
     public void OnTriggerEnter(Collider other) {
