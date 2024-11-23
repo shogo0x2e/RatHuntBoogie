@@ -12,11 +12,16 @@ public class MicroWave : MonoBehaviour {
     private const float totalSlideAmount = 0.54F;
     private float currSlideAmount = 0;
 
-    private const float cookTime = 6F;
+    private const float cookTime = 8F;
     private bool isCooking = false;
 
+    private const float woodenPlateRotateSpeed = 26F;
+    private float currWoodenPlateRotation;
+
     public void Start() {
-        TurnLightOff();
+        currWoodenPlateRotation = woodenPlate.transform.rotation.y;
+
+        TurnLightsOff();
     }
 
     public void Update() {
@@ -27,7 +32,6 @@ public class MicroWave : MonoBehaviour {
                 UpdateDoorContainerPosition();
 
                 if (currSlideAmount == 0) {
-                    TurnLightOn();
                     StartCooking();
                 }
             }
@@ -40,7 +44,8 @@ public class MicroWave : MonoBehaviour {
         }
 
         if (isCooking) {
-            Debug.Log("Hello");
+            currWoodenPlateRotation += woodenPlateRotateSpeed * Time.deltaTime;
+            woodenPlate.transform.rotation = Quaternion.Euler(-180, currWoodenPlateRotation, 0);
         }
     }
 
@@ -54,7 +59,7 @@ public class MicroWave : MonoBehaviour {
         }
     }
 
-    private void TurnLightOff() {
+    private void TurnLightsOff() {
         foreach (Light spotLight in spotLights) {
             spotLight.enabled = false;
         }
@@ -62,25 +67,26 @@ public class MicroWave : MonoBehaviour {
 
     private void StartCooking() {
         isCooking = true;
-        StartCoroutine(SetStartCookingFalseAfterDelay());
+        TurnLightOn();
+        StartCoroutine(SetIsCookingFalseAfterDelay());
     }
 
-    private IEnumerator SetStartCookingFalseAfterDelay() {
+    private IEnumerator SetIsCookingFalseAfterDelay() {
         yield return new WaitForSeconds(cookTime);
+        TurnLightsOff();
         isCooking = false;
     }
 
     public void Open() {
-        if (!isDoorClosed) {
+        if (!isDoorClosed || isCooking) {
             return;
         }
 
-        TurnLightOff();
         isDoorClosed = false;
     }
 
     public void Cook() {
-        if (isDoorClosed) {
+        if (isDoorClosed || isCooking) {
             return;
         }
 
