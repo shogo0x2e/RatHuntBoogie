@@ -6,6 +6,8 @@ public class MicroWave : MonoBehaviour {
     [SerializeField] private GameObject doorContainer;
     [SerializeField] private Light[] spotLights;
     [SerializeField] private GameObject woodenPlate;
+    [SerializeField] private AudioClip cookingAudioClip;
+    [SerializeField] private AudioClip dingAudioClip;
 
     private bool isDoorClosed = true;
     private const float slideSpeed = 1.42F;
@@ -18,8 +20,12 @@ public class MicroWave : MonoBehaviour {
     private const float woodenPlateRotateSpeed = 26F;
     private float currWoodenPlateRotation;
 
+    private AudioSource audioSource;
+
     public void Start() {
         currWoodenPlateRotation = woodenPlate.transform.rotation.y;
+
+        audioSource = GetComponent<AudioSource>();
 
         TurnLightsOff();
     }
@@ -68,12 +74,19 @@ public class MicroWave : MonoBehaviour {
     private void StartCooking() {
         isCooking = true;
         TurnLightOn();
+        audioSource.Stop();
+        audioSource.clip = cookingAudioClip;
+        audioSource.Play();
         StartCoroutine(SetIsCookingFalseAfterDelay());
     }
 
     private IEnumerator SetIsCookingFalseAfterDelay() {
         yield return new WaitForSeconds(cookTime);
+        audioSource.Stop();
+        audioSource.clip = dingAudioClip;
+        audioSource.Play();
         TurnLightsOff();
+        isDoorClosed = false;
         isCooking = false;
     }
 
