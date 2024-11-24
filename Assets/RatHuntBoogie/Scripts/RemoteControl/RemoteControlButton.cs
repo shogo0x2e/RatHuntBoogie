@@ -18,9 +18,10 @@ public class RemoteControlButton : MonoBehaviour {
 
         btBasePosition = transform.localPosition;
 
+        float btPressedY = btBasePosition.y - transform.localScale.y * (90F / 100F);
         btPressedPosition = pressedTargetPosition != Vector3.zero
             ? pressedTargetPosition
-            : new Vector3(btBasePosition.x, 0.02F, btBasePosition.z);
+            : new Vector3(btBasePosition.x, btPressedY, btBasePosition.z);
     }
 
     public void OnTriggerEnter(Collider other) {
