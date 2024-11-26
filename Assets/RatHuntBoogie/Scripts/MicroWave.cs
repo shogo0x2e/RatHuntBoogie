@@ -14,7 +14,7 @@ public class MicroWave : MonoBehaviour {
     private const float totalSlideAmount = 0.54F;
     private float currSlideAmount = 0;
 
-    private const float cookTime = 8F;
+    private const float cookTime = 6.2F;
     private bool isCooking = false;
 
     private const float woodenPlateRotateSpeed = 26F;
