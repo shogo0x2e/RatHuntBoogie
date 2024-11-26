@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class Door : ButtonObject {
     [SerializeField] private GameObject doorContainer;
-    [SerializeField] private GameObject glassChild;
     [SerializeField] private float slideSpeed = 1.6F;
     [SerializeField] private float delayAfterClose = 4.2F;
+    [SerializeField] private float totalSlideAmount = 1.5F;
 
-    private float totalSlideAmount;
     private bool isSliding = false;
     private float currSlideAmount = 0;
     private Coroutine slidingCoroutine = null;
-
-    public void Start() {
-        totalSlideAmount = glassChild.transform.localScale.x - 0.1F;
-    }
 
     public void Update() {
         if (isSliding) {

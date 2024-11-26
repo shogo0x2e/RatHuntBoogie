@@ -4,32 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-<<<<<<< HEAD
-  - enabled: 0
-    path: Assets/RatHuntBoogie/Scenes/MainScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/RatHuntBoogie/Scenes/Test/Harald/TestScene.unity
-    guid: 4fcb081e18e8d48b583ba9f523ac20f3
-  - enabled: 1
-    path: Assets/RatHuntBoogie/Scenes/Test/Harald/TestScene 1.unity
-    guid: 1bef4d813a0402d43a87518d09cb1f34
-  - enabled: 0
-    path: Assets/RatHuntBoogie/Scenes/Test/Harald/TestScene 2.unity
-    guid: 9104e36d242abd14ba705308a2b46407
-  - enabled: 1
-    path: Assets/RatHuntBoogie/Scenes/Test/Iley/TestScene.unity
-    guid: aabaa4a6f9c034d9eb81ab6e49e5bf76
-=======
-  - enabled: 1
-    path: Assets/RatHuntBoogie/Scenes/Test/Shogo/TestScene.unity
-    guid: 7d8593725481544588c0da583c087e83
->>>>>>> b570af09c358eaff00deebd6dd720fd10c30b2ea
+  m_Scenes: []
   m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7ee1b7e3a676a4a778e5b670cc376e4d,
-      type: 2}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 482ef67eca74440cea60944b69d94802,
-      type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 9c81b531d3ff65e44ae239e2820295e3,
       type: 2}
