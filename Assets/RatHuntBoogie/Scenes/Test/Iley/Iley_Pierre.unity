@@ -984,6 +984,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 963581552268287119, guid: 32322aed7a68c2245885fec1d75af034,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 963581552268287119, guid: 32322aed7a68c2245885fec1d75af034,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2307674288398198502, guid: 32322aed7a68c2245885fec1d75af034,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1034,10 +1044,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3138120560469572164, guid: 32322aed7a68c2245885fec1d75af034,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3138120560469572164, guid: 32322aed7a68c2245885fec1d75af034,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3464709223630916891, guid: 32322aed7a68c2245885fec1d75af034,
         type: 3}
       propertyPath: m_Name
       value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217539987133912923, guid: 32322aed7a68c2245885fec1d75af034,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217539987133912923, guid: 32322aed7a68c2245885fec1d75af034,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5075403725278004198, guid: 32322aed7a68c2245885fec1d75af034,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5075403725278004198, guid: 32322aed7a68c2245885fec1d75af034,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
