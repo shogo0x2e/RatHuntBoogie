@@ -8859,11 +8859,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorWithHole
       objectReference: {fileID: 0}
+    - target: {fileID: 6291780332584383437, guid: 05eb76f28927c70409e66e322d119bdc,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 737185729}
     - target: {fileID: 7666902615862183879, guid: 05eb76f28927c70409e66e322d119bdc,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 737185729}
+    - target: {fileID: 7666902615862183879, guid: 05eb76f28927c70409e66e322d119bdc,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
