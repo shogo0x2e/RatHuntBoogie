@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/RatHuntBoogie/Models/Lamp/DefaultMaterial_baseColor.jpeg.meta
 guid: 52ab61f51f7eca24d82e4982f6b175fe
+========
+guid: 1551dedb0303bc04fb429e74930717a8
+>>>>>>>> save4:Assets/RatHuntBoogie/Models/Barbecue/Barbecue_baseColor.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

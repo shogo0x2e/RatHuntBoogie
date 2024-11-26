@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/RatHuntBoogie/Models/Lamp/DefaultMaterial_metallicRoughness.png.meta
 guid: 8c5a94856602b5641b3b604c7b411c37
+========
+guid: 13f46f9bbdc2a9c42a79db17871948cb
+>>>>>>>> save4:Assets/RatHuntBoogie/Models/Barbecue/Barbecue_metallicRoughness.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

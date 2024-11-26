@@ -329,11 +329,11 @@ GameObject:
   - component: {fileID: 7254862215774719593}
   - component: {fileID: 5320761432694476481}
   m_Layer: 0
-  m_Name: Base
+  m_Name: RemoteControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1027879809068287705
 Transform:
@@ -472,7 +472,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3413137102891939229
 Transform:
@@ -1712,7 +1712,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7353441338513920779
 Transform:
@@ -2057,6 +2057,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ScreenTV
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f16177fce2aae2641a08e10fb024d77b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
