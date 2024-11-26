@@ -18,11 +18,9 @@ public class RaycastCollisionDetection : MonoBehaviour
         Ray ray = new Ray(thisPosition, direction);
         
         RaycastHit hit;
-        Color debugRayColor = Color.red;
         
         if (Physics.Raycast(ray, out hit, _pawInputData.pawRayLength))
         {
-            debugRayColor = Color.green;
             if (!_hasCollided)
             {
                 _hasCollided = true;
@@ -37,11 +35,6 @@ public class RaycastCollisionDetection : MonoBehaviour
                 _hasCollided = false;
                 OnRaycastExit();
             }
-        }
-
-        if (DebugManager.GetInstance().VisualizeWalkingGestureRaycast)
-        {
-            Debug.DrawRay(ray.origin, ray.direction * .1f, debugRayColor);
         }
     }
 }

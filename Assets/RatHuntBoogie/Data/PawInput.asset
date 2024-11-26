@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a05a79ecabb34462a5c5db2746454c0, type: 3}
   m_Name: PawInput
   m_EditorClassIdentifier: 
-  tableHeight: 0.72
-  pawRayLength: 0.07
+  lowPassFilterFactor: 0.7
+  tableHeight: 0.7
+  pawRayLength: 0.03

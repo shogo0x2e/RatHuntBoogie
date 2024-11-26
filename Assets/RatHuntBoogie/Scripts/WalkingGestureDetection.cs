@@ -25,13 +25,21 @@ public class WalkingGestureDetection : RaycastCollisionDetection
     {
         base.OnRaycastStay(hit);
         
-        Transform parentTransform = transform.parent.transform;
-        Vector3 parentPos = parentTransform.position;
+        // Transform parentTransform = transform.parent.transform;
+        // Vector3 parentPos = parentTransform.position;
         
         // paw not to go through the table
-        parentTransform.position = new Vector3(parentPos.x, _pawInputData.tableHeight, parentPos.z);
+        // parentTransform.position = new Vector3(parentPos.x, _pawInputData.tableHeight, parentPos.z);
 
-        _player.transform.position -= (hit.point - _previousPosition);
+        Vector3 pawMovingDiff = hit.point - _previousPosition;
+        Vector3 playerPosition = _player.transform.position;
+        Vector3 toward = playerPosition - new Vector3(pawMovingDiff.x, 0, pawMovingDiff.z);
+        
+        _player.transform.position = Vector3.Lerp(
+            playerPosition, 
+            toward, 
+            _pawInputData.lowPassFilterFactor
+        );
         _previousPosition = hit.point;
     }
 }
