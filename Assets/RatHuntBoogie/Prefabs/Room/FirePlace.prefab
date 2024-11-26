@@ -285,6 +285,11 @@ PrefabInstance:
       propertyPath: InitialModule.startLifetime.minScalar
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2663835706030324186, guid: af0db90e5e0876745ad6427b872a40ff,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2829455972608850838, guid: af0db90e5e0876745ad6427b872a40ff,
         type: 3}
       propertyPath: m_StaticEditorFlags
