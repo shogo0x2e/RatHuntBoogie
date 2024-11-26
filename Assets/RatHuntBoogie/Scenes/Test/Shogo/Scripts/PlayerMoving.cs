@@ -4,7 +4,19 @@ using UnityEngine;
 
 public class PlayerMoving : MonoBehaviour
 {
-    // Update is called once per frame
+    // [SerializeField]
+    // private 
+    
+    private Vector3 _previousHandPosition;
+
+    void Start()
+    {
+        if (_previousHandPosition == null)
+        {
+            
+        }
+    }
+    
     void Update()
     {
         Vector2 movement = OVRInput.Get(OVRInput.RawAxis2D.RThumbstick);
