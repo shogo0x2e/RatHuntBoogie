@@ -4,36 +4,29 @@ using UnityEngine;
 
 public class RatHeadCollision : MonoBehaviour
 {
-
+    [SerializeField]
+    private GameObject _bloodEffect;
 
     public bool isGrabbed = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isGrabbed && other.CompareTag("Head")) Debug.Log("grabbed and head");
+        if (isGrabbed && other.CompareTag("Head"))
+        {
+            EatObject();
+        }
         
     }
-
-
-
-    //public void onCollisionEnter (RatHeadCollision collision)
-    //{
-
-    //    if (isGrabbed && collision.gameObject.CompareTag("PlayerHead"))
-    //    {
-    //        // Call the "Eat" method
-    //        EatObject();
-    //    }
-    //}
 
     private void EatObject()
     {
         // Implement the logic for "eating" the object
         // For example, play a sound, animation, or update score
-        Debug.Log($"{gameObject.name} is eaten!");
+        _bloodEffect.SetActive(true);
+        
 
         // Destroy the object (simulate being "eaten")
-        Destroy(gameObject);
+        Destroy(gameObject, 1f);
     }
 
 
