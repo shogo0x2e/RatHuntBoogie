@@ -5,6 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+<<<<<<< HEAD
   - enabled: 0
     path: Assets/RatHuntBoogie/Scenes/MainScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
@@ -20,6 +21,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/RatHuntBoogie/Scenes/Test/Iley/TestScene.unity
     guid: aabaa4a6f9c034d9eb81ab6e49e5bf76
+=======
+  - enabled: 1
+    path: Assets/RatHuntBoogie/Scenes/Test/Shogo/TestScene.unity
+    guid: 7d8593725481544588c0da583c087e83
+>>>>>>> b570af09c358eaff00deebd6dd720fd10c30b2ea
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7ee1b7e3a676a4a778e5b670cc376e4d,
       type: 2}
