@@ -73,6 +73,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3998641523820187490, guid: 1577edc6817263f42816308b5ce62b1e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -2687136563377888602, guid: 1577edc6817263f42816308b5ce62b1e,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -103,10 +108,35 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f07f6cb5f88bf754da26b0484c346192, type: 2}
+    - target: {fileID: 379114027556166813, guid: 1577edc6817263f42816308b5ce62b1e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1577edc6817263f42816308b5ce62b1e,
         type: 3}
       propertyPath: m_Name
       value: PaintingFrame
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1577edc6817263f42816308b5ce62b1e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777224243925442854, guid: 1577edc6817263f42816308b5ce62b1e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528137105382408704, guid: 1577edc6817263f42816308b5ce62b1e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8979717261856645278, guid: 1577edc6817263f42816308b5ce62b1e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
