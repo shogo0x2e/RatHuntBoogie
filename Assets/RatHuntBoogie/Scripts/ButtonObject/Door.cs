@@ -12,14 +12,28 @@ public class Door : ButtonObject {
     private float currSlideAmount = 0;
     private Coroutine slidingCoroutine = null;
 
+    private AudioSource slidingSound;
+
+    public void Start() {
+        slidingSound = GetComponent<AudioSource>();
+    }
+
     public void Update() {
         if (isSliding) {
+            if (currSlideAmount == 0) {
+                slidingSound.Play();
+            }
+
             if (currSlideAmount < totalSlideAmount) {
                 currSlideAmount += slideSpeed * Time.deltaTime;
                 currSlideAmount = Math.Min(currSlideAmount, totalSlideAmount);
                 UpdateDoorContainerPosition();
             }
         } else {
+            if (currSlideAmount == totalSlideAmount) {
+                slidingSound.Play();
+            }
+
             if (currSlideAmount > 0) {
                 currSlideAmount -= slideSpeed * Time.deltaTime;
                 currSlideAmount = Math.Max(currSlideAmount, 0);
