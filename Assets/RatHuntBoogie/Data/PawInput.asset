@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PawInput
   m_EditorClassIdentifier: 
   lowPassFilterFactor: 0.7
-  tableHeight: 0.7
+  tableHeight: 0.73
   pawRayLength: 0.03
