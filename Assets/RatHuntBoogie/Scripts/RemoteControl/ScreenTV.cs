@@ -18,7 +18,7 @@ public class ScreenTV : MonoBehaviour {
         videoPlayer = GetComponent<VideoPlayer>();
         audioSource = GetComponent<AudioSource>();
 
-        videoPlayer.clip = videoClips[0];
+        videoPlayer.clip = videoClips[currVideoIndex];
         videoPlayer.prepareCompleted += OnVideoPrepared;
 
         videoTimes = new double[videoClips.Length];
@@ -28,7 +28,8 @@ public class ScreenTV : MonoBehaviour {
     public void OnOff() {
         isOn = !isOn;
         if (isOn) {
-            videoPlayer.clip = videoClips[0];
+            currVideoIndex = 0;
+            videoPlayer.clip = videoClips[currVideoIndex];
             VolumeOn();
             StartVideoPlayer();
         } else {

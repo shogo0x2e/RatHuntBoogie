@@ -4961,7 +4961,7 @@ PrefabInstance:
     - target: {fileID: 5223643030440030135, guid: 553222052c6b851458c3dc6d0f107858,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7348064973777225562, guid: 553222052c6b851458c3dc6d0f107858,
         type: 3}
@@ -5045,7 +5045,7 @@ PrefabInstance:
     - target: {fileID: 1027879809068287705, guid: d0dab663ca926334893ce6b419d735dc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.161
+      value: -1.291
       objectReference: {fileID: 0}
     - target: {fileID: 1027879809068287705, guid: d0dab663ca926334893ce6b419d735dc,
         type: 3}
@@ -5107,7 +5107,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScreenTV
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5320761432694476481, guid: d0dab663ca926334893ce6b419d735dc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5588,7 +5589,7 @@ PrefabInstance:
     - target: {fileID: 5223643030440030135, guid: 553222052c6b851458c3dc6d0f107858,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7348064973777225562, guid: 553222052c6b851458c3dc6d0f107858,
         type: 3}
@@ -5772,7 +5773,7 @@ PrefabInstance:
     - target: {fileID: 5223643030440030135, guid: 553222052c6b851458c3dc6d0f107858,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7348064973777225562, guid: 553222052c6b851458c3dc6d0f107858,
         type: 3}
@@ -6497,7 +6498,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -20, y: 2, z: 30}
-  m_LocalScale: {x: 0.2, y: 0.68, z: 0.6}
+  m_LocalScale: {x: 0.6, y: 0.68, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 48576045}
@@ -6637,7 +6638,7 @@ PrefabInstance:
     - target: {fileID: 5223643030440030135, guid: 553222052c6b851458c3dc6d0f107858,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7348064973777225562, guid: 553222052c6b851458c3dc6d0f107858,
         type: 3}
@@ -6716,7 +6717,7 @@ PrefabInstance:
     - target: {fileID: 5223643030440030135, guid: 553222052c6b851458c3dc6d0f107858,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7348064973777225562, guid: 553222052c6b851458c3dc6d0f107858,
         type: 3}
@@ -9971,7 +9972,7 @@ PrefabInstance:
     - target: {fileID: 5223643030440030135, guid: 553222052c6b851458c3dc6d0f107858,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7348064973777225562, guid: 553222052c6b851458c3dc6d0f107858,
         type: 3}
@@ -10336,7 +10337,7 @@ PrefabInstance:
     - target: {fileID: 6679638306067517778, guid: edc59850933131c4899edce226293f9f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26
+      value: -24.344
       objectReference: {fileID: 0}
     - target: {fileID: 6679638306067517778, guid: edc59850933131c4899edce226293f9f,
         type: 3}

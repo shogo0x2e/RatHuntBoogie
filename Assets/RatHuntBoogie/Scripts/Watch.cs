@@ -44,7 +44,7 @@ public class Watch : MonoBehaviour {
 
             StringBuilder sb = new StringBuilder();
             int i = currStartIndex;
-            foreach (char c in "Booging") {
+            foreach (char c in "BoogBoog") {
                 sb.Append($"<color={WatchButton.RainbowColors[i]}>{c}</color>");
                 i = (i + 1) % WatchButton.RainbowColors.Length;
             }
