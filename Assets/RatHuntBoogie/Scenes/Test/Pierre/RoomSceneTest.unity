@@ -10334,6 +10334,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Watch
       objectReference: {fileID: 0}
+    - target: {fileID: 2975732634263954230, guid: edc59850933131c4899edce226293f9f,
+        type: 3}
+      propertyPath: MinDistance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6679638306067517778, guid: edc59850933131c4899edce226293f9f,
         type: 3}
       propertyPath: m_LocalPosition.x
