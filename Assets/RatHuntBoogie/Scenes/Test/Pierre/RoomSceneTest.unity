@@ -5156,7 +5156,7 @@ ReflectionProbe:
   serializedVersion: 2
   m_Type: 0
   m_Mode: 0
-  m_RefreshMode: 0
+  m_RefreshMode: 1
   m_TimeSlicingMode: 0
   m_Resolution: 512
   m_UpdateFrequency: 0
@@ -6828,7 +6828,7 @@ ReflectionProbe:
   serializedVersion: 2
   m_Type: 0
   m_Mode: 0
-  m_RefreshMode: 0
+  m_RefreshMode: 1
   m_TimeSlicingMode: 0
   m_Resolution: 512
   m_UpdateFrequency: 0
@@ -6846,7 +6846,7 @@ ReflectionProbe:
   m_BlendDistance: 1
   m_HDR: 1
   m_BoxProjection: 1
-  m_RenderDynamicObjects: 0
+  m_RenderDynamicObjects: 1
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
@@ -6878,7 +6878,7 @@ ReflectionProbe:
   serializedVersion: 2
   m_Type: 0
   m_Mode: 0
-  m_RefreshMode: 0
+  m_RefreshMode: 1
   m_TimeSlicingMode: 0
   m_Resolution: 512
   m_UpdateFrequency: 0
@@ -10173,7 +10173,7 @@ ReflectionProbe:
   serializedVersion: 2
   m_Type: 0
   m_Mode: 0
-  m_RefreshMode: 0
+  m_RefreshMode: 1
   m_TimeSlicingMode: 0
   m_Resolution: 512
   m_UpdateFrequency: 0
@@ -10423,6 +10423,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MicroWave
       objectReference: {fileID: 0}
+    - target: {fileID: 1631363753313121257, guid: 599b5829240bc5244aa20ec3be3be126,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 387137480}
     - target: {fileID: 1782295548032922177, guid: 599b5829240bc5244aa20ec3be3be126,
         type: 3}
       propertyPath: m_Mesh
@@ -10431,7 +10436,7 @@ PrefabInstance:
     - target: {fileID: 1782295548032922177, guid: 599b5829240bc5244aa20ec3be3be126,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 26
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 4023700287366656838, guid: 599b5829240bc5244aa20ec3be3be126,
         type: 3}
