@@ -1,11 +1,14 @@
+using System;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class WatchButton : MonoBehaviour {
     [SerializeField] private TextMeshPro boogieText;
     [SerializeField] private float boogieShowDuration = 6F;
     [SerializeField] public float updateTime = 0.066F;
+    [SerializeField] private GameObject WatchScreen;
     [SerializeField] private GameObject watchCenter;
     [SerializeField] private GameObject watchLeft;
     [SerializeField] private GameObject watchUp;
@@ -50,10 +53,6 @@ public class WatchButton : MonoBehaviour {
             return;
         }
 
-        if (Random.Range(0F, 1F) < 0.1F) {
-            SpawnBoogieParticle();
-        }
-
         showTimeAcc += Time.deltaTime;
         if (showTimeAcc >= boogieShowDuration) {
             HideBoogieText();
@@ -79,6 +78,16 @@ public class WatchButton : MonoBehaviour {
         }
 
         currTimeAcc = 0;
+    }
+
+    public void FixedUpdate() {
+        if (!boogieText.enabled) {
+            return;
+        }
+
+        if (Random.Range(0F, 1F) < 0.076F) {
+            SpawnBoogieParticle();
+        }
     }
 
     public void OnTriggerEnter(Collider other) {
@@ -107,15 +116,24 @@ public class WatchButton : MonoBehaviour {
     }
 
     private void SpawnBoogieParticle() {
-        float rdX = Random.Range(boogieParticleCenter.x - 2 * halfWidth, boogieParticleCenter.x + 2 * halfWidth);
-        float rdY = Random.Range(boogieParticleCenter.y - 2 * halfHeight, boogieParticleCenter.y + 2 * halfHeight);
-        float rdZ = Random.Range(-0.1F, 0.1F);
+        const float mFactor = 1.36F;
+        const float dFactor = 3.2F;
 
-        float rdScale = Random.Range(0.6F, 1.2F);
+        float rdX = Random.Range(mFactor * halfWidth / dFactor, mFactor * halfWidth);
+        if (Random.Range(0F, 1F) < 1F / 2F) {
+            rdX = -rdX;
+        }
 
-        GameObject spawnedParticle = Instantiate(boogieParticle,
-            new Vector3(rdX, rdY, rdZ),
-            Random.rotation);
-        spawnedParticle.transform.localScale = new Vector3(rdScale, rdScale, rdScale);
+        float rdY = Random.Range(-mFactor * halfHeight / dFactor, mFactor * halfHeight);
+        if (Random.Range(0F, 1F) < 1F / 2F) {
+            rdY = -rdY;
+        }
+
+        float rdZ = Random.Range(-0.08F, -0.02F);
+
+        GameObject spawnedParticle = Instantiate(boogieParticle, WatchScreen.transform);
+        spawnedParticle.transform.localPosition = new Vector3(rdX, rdY, rdZ);
+
+        Destroy(spawnedParticle.gameObject, 2.46F);
     }
 }
