@@ -686,7 +686,13 @@ MonoBehaviour:
   videoClips:
   - {fileID: 32900000, guid: e9e7ca22096951b4693bde354c67a7be, type: 3}
   - {fileID: 32900000, guid: 32b5ffe8e34b56a4e8a9b1ec7f2326d1, type: 3}
-  - {fileID: 32900000, guid: 90a710d7957918848b218342a8bb5cef, type: 3}
+  - {fileID: 32900000, guid: 7b317e1f1f29bcf4d8605b71b865d68d, type: 3}
+  - {fileID: 32900000, guid: d6928bda48d3e844bb6d77d25d8a4e2b, type: 3}
+  - {fileID: 32900000, guid: fb56414fa3eb3ca42987d40e4e962d69, type: 3}
+  - {fileID: 32900000, guid: fa743d67ef4fc644b83598ecdf708f3c, type: 3}
+  - {fileID: 32900000, guid: 824dc57d9568d8f438d6787b62768f4a, type: 3}
+  - {fileID: 32900000, guid: 7d70f9ed6c6120441830be066cab53f1, type: 3}
+  - {fileID: 32900000, guid: 035735fb22d47bc49a1cc31a33685713, type: 3}
 --- !u!1 &2864565219928536065
 GameObject:
   m_ObjectHideFlags: 0

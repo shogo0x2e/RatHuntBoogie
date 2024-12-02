@@ -44,7 +44,7 @@ public class Watch : MonoBehaviour {
 
             StringBuilder sb = new StringBuilder();
             int i = currStartIndex;
-            foreach (char c in "Booging") {
+            foreach (char c in "BoogBoog") {
                 sb.Append($"<color={WatchButton.RainbowColors[i]}>{c}</color>");
                 i = (i + 1) % WatchButton.RainbowColors.Length;
             }
@@ -72,7 +72,11 @@ public class Watch : MonoBehaviour {
         int remTimeInt = (int)remTime;
         int remTimeMinutes = remTimeInt / 60;
         int remTimeSeconds = remTimeInt % 60;
-        topText.text = "Time " + remTimeMinutes + ":" + remTimeSeconds;
+        string remTimeMinutesStr = remTimeMinutes.ToString();
+        string remTimeSecondsStr = remTimeSeconds >= 10
+            ? remTimeSeconds.ToString()
+            : "0" + remTimeSeconds;
+        topText.text = "Time " + remTimeMinutesStr + ":" + remTimeSecondsStr;
     }
 
     private void SetMidText() {
