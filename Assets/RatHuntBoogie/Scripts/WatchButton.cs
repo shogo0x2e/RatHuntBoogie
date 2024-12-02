@@ -6,6 +6,10 @@ public class WatchButton : MonoBehaviour {
     [SerializeField] private TextMeshPro boogieText;
     [SerializeField] private float boogieShowDuration = 6F;
     [SerializeField] public float updateTime = 0.066F;
+    [SerializeField] private GameObject watchCenter;
+    [SerializeField] private GameObject watchLeft;
+    [SerializeField] private GameObject watchUp;
+    [SerializeField] private GameObject boogieParticle;
 
     private const string boogieString = "Boogie Time";
 
@@ -27,8 +31,16 @@ public class WatchButton : MonoBehaviour {
     private int currStartIndex = 0;
     private float currTimeAcc = 0;
 
+    private Vector3 boogieParticleCenter;
+    private float halfWidth;
+    private float halfHeight;
+
     public void Start() {
         boogieSong = GetComponent<AudioSource>();
+
+        boogieParticleCenter = watchCenter.transform.position;
+        halfWidth = Mathf.Abs(watchLeft.transform.localPosition.x);
+        halfHeight = Mathf.Abs(watchUp.transform.localPosition.y);
 
         boogieText.enabled = false;
     }
@@ -36,6 +48,10 @@ public class WatchButton : MonoBehaviour {
     public void Update() {
         if (!boogieText.enabled) {
             return;
+        }
+
+        if (Random.Range(0F, 1F) < 0.1F) {
+            SpawnBoogieParticle();
         }
 
         showTimeAcc += Time.deltaTime;
@@ -88,5 +104,18 @@ public class WatchButton : MonoBehaviour {
         Watch.GetInstance().ShowTexts();
 
         boogieText.enabled = false;
+    }
+
+    private void SpawnBoogieParticle() {
+        float rdX = Random.Range(boogieParticleCenter.x - 2 * halfWidth, boogieParticleCenter.x + 2 * halfWidth);
+        float rdY = Random.Range(boogieParticleCenter.y - 2 * halfHeight, boogieParticleCenter.y + 2 * halfHeight);
+        float rdZ = Random.Range(-0.1F, 0.1F);
+
+        float rdScale = Random.Range(0.6F, 1.2F);
+
+        GameObject spawnedParticle = Instantiate(boogieParticle,
+            new Vector3(rdX, rdY, rdZ),
+            Random.rotation);
+        spawnedParticle.transform.localScale = new Vector3(rdScale, rdScale, rdScale);
     }
 }

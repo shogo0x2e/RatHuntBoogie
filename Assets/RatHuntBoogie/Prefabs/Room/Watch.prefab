@@ -644,6 +644,10 @@ MonoBehaviour:
   boogieText: {fileID: 7222723240361506623}
   boogieShowDuration: 6
   updateTime: 0.06
+  watchCenter: {fileID: 8997168524945828231}
+  watchLeft: {fileID: 8459230371219345627}
+  watchUp: {fileID: 6967013573206701310}
+  boogieParticle: {fileID: 167058, guid: c309b28bbfbf37e46b316c8a9245e3b2, type: 3}
   isPlaying: 0
 --- !u!1 &5859703797237282660
 GameObject:
@@ -816,6 +820,68 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1470524307407003951}
   m_maskType: 0
+--- !u!1 &6967013573206701310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3136629567093653442}
+  m_Layer: 0
+  m_Name: WatchUp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3136629567093653442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6967013573206701310}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0, y: -0.019, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2348030423178493775}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8459230371219345627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 75932433440875014}
+  m_Layer: 0
+  m_Name: WatchLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &75932433440875014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8459230371219345627}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0.026, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2348030423178493775}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8712015779750610665
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,6 +1055,37 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 2895110648498069865}
   m_maskType: 0
+--- !u!1 &8997168524945828231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8699717165159535202}
+  m_Layer: 0
+  m_Name: WatchCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8699717165159535202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8997168524945828231}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2348030423178493775}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5568988005859672345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1078,6 +1175,18 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3551440394666186848}
+    - targetCorrespondingSourceObject: {fileID: -1306918899837534634, guid: 75376a5c66618ba4396b42665ab8245a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8699717165159535202}
+    - targetCorrespondingSourceObject: {fileID: -1306918899837534634, guid: 75376a5c66618ba4396b42665ab8245a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 75932433440875014}
+    - targetCorrespondingSourceObject: {fileID: -1306918899837534634, guid: 75376a5c66618ba4396b42665ab8245a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3136629567093653442}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75376a5c66618ba4396b42665ab8245a, type: 3}
 --- !u!4 &2348030423178493775 stripped
