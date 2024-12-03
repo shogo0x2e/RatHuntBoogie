@@ -175,17 +175,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 95932744186865647856589bfdccf651,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.91
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95932744186865647856589bfdccf651,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.06
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95932744186865647856589bfdccf651,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.4399986
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95932744186865647856589bfdccf651,
         type: 3}
@@ -242,15 +242,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 95932744186865647856589bfdccf651,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2611258603764443602}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 95932744186865647856589bfdccf651,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 6190860514679507362}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 95932744186865647856589bfdccf651,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3128158358811528882}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 95932744186865647856589bfdccf651,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2611258603764443602}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 95932744186865647856589bfdccf651,
         type: 3}
       insertIndex: -1
@@ -289,26 +289,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2611258603764443602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5219340537481457424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f122d570b7cee764db00a4237d26dda1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  EnemyDistanceRun: 4
-  randomMoveInterval: 5
-  randomMoveRadius: 10
-  jumpIntervalMin: 2
-  jumpIntervalMax: 5
-  jumpHeight: 2
-  jumpDuration: 0.5
 --- !u!195 &6190860514679507362
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -427,6 +407,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2611258603764443602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5219340537481457424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f122d570b7cee764db00a4237d26dda1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  EnemyDistanceRun: 4
+  randomMoveInterval: 5
+  randomMoveRadius: 10
+  jumpIntervalMin: 2
+  jumpIntervalMax: 5
+  jumpHeight: 2
+  jumpDuration: 0.5
 --- !u!114 &8697890410782464036
 MonoBehaviour:
   m_ObjectHideFlags: 0
