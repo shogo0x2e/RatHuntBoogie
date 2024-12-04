@@ -1,6 +1,7 @@
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.ProBuilder;
 
 public class Watch : MonoBehaviour {
     private static Watch instance;
@@ -29,7 +30,7 @@ public class Watch : MonoBehaviour {
     }
 
     public void Update() {
-        remTime -= Time.deltaTime;
+        remTime = Mathf.Max(remTime - Time.deltaTime, 0);
         SetTopText();
 
         if (remTime < 0) {

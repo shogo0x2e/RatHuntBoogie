@@ -91,6 +91,10 @@ public class WatchButton : MonoBehaviour {
     }
 
     public void OnTriggerEnter(Collider other) {
+        if (!other.name.StartsWith("Paw")) {
+            return;
+        }
+
         isPlaying = !isPlaying;
         if (isPlaying) {
             EnableBoogieText();

@@ -4612,6 +4612,21 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 7197552174119920079, guid: 4586e23e0dc9556408f83d0a23873eb7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.0240022
+      objectReference: {fileID: 0}
+    - target: {fileID: 7197552174119920079, guid: 4586e23e0dc9556408f83d0a23873eb7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2062
+      objectReference: {fileID: 0}
+    - target: {fileID: 7197552174119920079, guid: 4586e23e0dc9556408f83d0a23873eb7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00000011920929
+      objectReference: {fileID: 0}
     - target: {fileID: 7612053160035186879, guid: 4586e23e0dc9556408f83d0a23873eb7,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8176,7 +8191,7 @@ GameObject:
   - component: {fileID: 1176647812}
   - component: {fileID: 1176647813}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PawPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11685,7 +11700,7 @@ PrefabInstance:
     - target: {fileID: 7666902615862183879, guid: 05eb76f28927c70409e66e322d119bdc,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 20
+      value: 26
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14015,7 +14030,7 @@ PrefabInstance:
     - target: {fileID: 1782295548032922177, guid: 599b5829240bc5244aa20ec3be3be126,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 38
+      value: 119
       objectReference: {fileID: 0}
     - target: {fileID: 4023700287366656838, guid: 599b5829240bc5244aa20ec3be3be126,
         type: 3}

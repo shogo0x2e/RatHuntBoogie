@@ -11,7 +11,7 @@ public class RemoteControlButton : MonoBehaviour {
 
     private Vector3 btBasePosition;
     private Vector3 btPressedPosition;
-    
+
     public void Start() {
         onPressSound = GetComponent<AudioSource>();
 
@@ -24,6 +24,10 @@ public class RemoteControlButton : MonoBehaviour {
     }
 
     public void OnTriggerEnterX(Collider other) {
+        if (!other.name.StartsWith("Paw")) {
+            return;
+        }
+
         if (isPressed) {
             return;
         }
@@ -36,7 +40,7 @@ public class RemoteControlButton : MonoBehaviour {
         srcPresser = other.gameObject;
         onPress.Invoke();
         onPressSound.Play();
-        
+
         isPressed = true;
     }
 
@@ -47,7 +51,7 @@ public class RemoteControlButton : MonoBehaviour {
 
         transform.localPosition = btBasePosition;
         // TODO: Add release sound
-        
+
         isPressed = false;
     }
 }
