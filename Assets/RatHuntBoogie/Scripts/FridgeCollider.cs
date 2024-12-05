@@ -1,26 +1,27 @@
-﻿using System.Linq;
+﻿using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-public class RemoteControlButtonAdapter : MonoBehaviour {
-    [SerializeField] private RemoteControlButton remoteControlButton;
-
+public class FridgeCollider : MonoBehaviour {
+    
+    
+    public void Update() {
+        
+    }
+    
     public void OnTriggerEnter(Collider other) {
         if (!AllowTrigger(other)) {
             return;
         }
-
-        remoteControlButton.OnTriggerEnterX(other);
     }
 
     public void OnTriggerExit(Collider other) {
         if (!AllowTrigger(other)) {
             return;
         }
-
-        remoteControlButton.OnTriggerExitX(other);
     }
 
     private static bool AllowTrigger(Object other) {
-        return other.name.Contains("Paw");
+        return other.name.Contains("Rat");
     }
 }

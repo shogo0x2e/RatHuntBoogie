@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 public class WatchButton : MonoBehaviour {
@@ -91,7 +92,7 @@ public class WatchButton : MonoBehaviour {
     }
 
     public void OnTriggerEnter(Collider other) {
-        if (!other.name.StartsWith("Paw")) {
+        if (!AllowTrigger(other)) {
             return;
         }
 
@@ -103,6 +104,10 @@ public class WatchButton : MonoBehaviour {
             HideBoogieText();
             boogieSong.Stop();
         }
+    }
+
+    private static bool AllowTrigger(Object other) {
+        return other.name.Contains("Paw");
     }
 
     private void EnableBoogieText() {

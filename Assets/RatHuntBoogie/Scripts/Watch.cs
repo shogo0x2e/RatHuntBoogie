@@ -33,7 +33,7 @@ public class Watch : MonoBehaviour {
         remTime = Mathf.Max(remTime - Time.deltaTime, 0);
         SetTopText();
 
-        if (remTime < 0) {
+        if (remTime == 0) {
             // TODO: Stop
         }
 

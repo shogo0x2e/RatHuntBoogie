@@ -8136,7 +8136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1137332102}
   m_Layer: 0
-  m_Name: FrozenMoue
+  m_Name: FrozenRat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8259,7 +8259,7 @@ GameObject:
   - component: {fileID: 1176647812}
   - component: {fileID: 1176647813}
   m_Layer: 0
-  m_Name: PawPlayer
+  m_Name: PlayerPaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8344,14 +8344,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176647807}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20, y: 2, z: 30}
+  m_LocalRotation: {x: 0, y: -0.9950902, z: 0, w: 0.09897253}
+  m_LocalPosition: {x: -21.47, y: 2.580288, z: 30.18}
   m_LocalScale: {x: 0.6, y: 0.68, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 48576045}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -168.64, z: 0}
 --- !u!54 &1176647812
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -24,10 +24,6 @@ public class RemoteControlButton : MonoBehaviour {
     }
 
     public void OnTriggerEnterX(Collider other) {
-        if (!other.name.StartsWith("Paw")) {
-            return;
-        }
-
         if (isPressed) {
             return;
         }
