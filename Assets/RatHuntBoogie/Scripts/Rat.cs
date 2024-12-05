@@ -2,20 +2,13 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Rat : MonoBehaviour {
-    private NavMeshAgent _agent;
-
-    public GameObject Player;
-
-    public float EnemyDistanceRun = 4.0f;
-
     private Animator animator;
-
     private AudioSource audioSource;
-
-    // Random movement settings
+    private NavMeshAgent _agent;
+    public GameObject Player;
+    public float EnemyDistanceRun = 4.0f;
     public float randomMoveRadius = 10.0f;
     private float randomMoveTimer;
-
     public float jumpIntervalMin = 2.0f;
     public float jumpIntervalMax = 5.0f;
     private float jumpTimer;
@@ -26,20 +19,37 @@ public class Rat : MonoBehaviour {
     private float jumpElapsedTime;
     private Vector3 jumpDirection;
 
-    
-    
+    [SerializeField] private bool canMove = true;
+
+    [SerializeField] private GameObject[] modelParts;
+    private CapsuleCollider capsuleCollider;
+    private Rigidbody rigidBody;
+
+    [SerializeField] private GameObject iceCube;
+    [SerializeField] private GameObject iceCubePositionHolder;
+    private const float freezingTime = 6F;
+    private float freezingTimeAcc;
+
     public void Start() {
         _agent = GetComponent<NavMeshAgent>();
-
         animator = GetComponent<Animator>();
-
         audioSource = GetComponent<AudioSource>();
-
         randomMoveTimer = Random.Range(1.0f, 10.0f);
         jumpTimer = Random.Range(jumpIntervalMin, jumpIntervalMax);
+
+        capsuleCollider = GetComponent<CapsuleCollider>();
+        rigidBody = GetComponent<Rigidbody>();
+
+        SetCanMove(canMove);
     }
 
     public void Update() {
+        if (canMove) {
+            UpdateMovements();
+        }
+    }
+
+    private void UpdateMovements() {
         float distance = Vector3.Distance(transform.position, Player.transform.position);
 
         // Run away from the player
@@ -114,5 +124,53 @@ public class Rat : MonoBehaviour {
         } else {
             animator.SetBool("IsMoving", false);
         }
+    }
+
+    private void SetCanMove(bool value) {
+        canMove = value;
+        _agent.enabled = value;
+    }
+
+    public void AddFreezingTimeAcc(float value) {
+        freezingTimeAcc += value;
+        if (freezingTimeAcc >= freezingTime) {
+            Freeze();
+        }
+    }
+
+    public void ResetFreezingTimeAcc() {
+        freezingTimeAcc = 0;
+    }
+
+    private void Freeze() {
+        capsuleCollider.enabled = false;
+        EnableRigidBody(false);
+
+        foreach (GameObject modelPart in modelParts) {
+            modelPart.transform.parent = iceCubePositionHolder.transform;
+        }
+
+        animator.enabled = false;
+        iceCube.SetActive(true);
+    }
+
+    private void RemoveFreeze() {
+        capsuleCollider.enabled = true;
+        EnableRigidBody(true);
+
+        foreach (GameObject modelPart in modelParts) {
+            modelPart.transform.parent = transform;
+        }
+
+        iceCube.SetActive(false);
+    }
+
+    private bool IsFrozen() {
+        return iceCube.activeSelf;
+    }
+
+    private void EnableRigidBody(bool value) {
+        rigidBody.isKinematic = !value;
+        rigidBody.detectCollisions = value;
     }
 }
