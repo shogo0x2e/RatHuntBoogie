@@ -22,7 +22,7 @@ public class Rat : MonoBehaviour {
     [SerializeField] private bool canMove = true;
 
     [SerializeField] private GameObject[] modelParts;
-    private CapsuleCollider capsuleCollider;
+    private BoxCollider boxCollider;
     private Rigidbody rigidBody;
 
     [SerializeField] private GameObject iceCube;
@@ -37,7 +37,7 @@ public class Rat : MonoBehaviour {
         randomMoveTimer = Random.Range(1.0f, 10.0f);
         jumpTimer = Random.Range(jumpIntervalMin, jumpIntervalMax);
 
-        capsuleCollider = GetComponent<CapsuleCollider>();
+        boxCollider = GetComponent<BoxCollider>();
         rigidBody = GetComponent<Rigidbody>();
 
         SetCanMove(canMove);
@@ -142,21 +142,29 @@ public class Rat : MonoBehaviour {
         freezingTimeAcc = 0;
     }
 
-    private void Freeze() {
-        capsuleCollider.enabled = false;
+    public void ReEnableSelf() {
+        boxCollider.enabled = true;
+        EnableRigidBody(true);
+    }
+
+    public void DisableSelf() {
+        animator.enabled = false;
+        boxCollider.enabled = false;
         EnableRigidBody(false);
+    }
+
+    private void Freeze() {
+        DisableSelf();
 
         foreach (GameObject modelPart in modelParts) {
             modelPart.transform.parent = iceCubePositionHolder.transform;
         }
 
-        animator.enabled = false;
         iceCube.SetActive(true);
     }
 
     private void RemoveFreeze() {
-        capsuleCollider.enabled = true;
-        EnableRigidBody(true);
+        ReEnableSelf();
 
         foreach (GameObject modelPart in modelParts) {
             modelPart.transform.parent = transform;

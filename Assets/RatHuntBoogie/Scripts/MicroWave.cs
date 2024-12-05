@@ -8,16 +8,17 @@ public class MicroWave : MonoBehaviour {
     [SerializeField] private GameObject woodenPlate;
     [SerializeField] private AudioClip cookingAudioClip;
     [SerializeField] private AudioClip dingAudioClip;
+    [SerializeField] private MicroWaveCollider microWaveCollider;
 
     private bool isDoorClosed = true;
     private const float slideSpeed = 1.42F;
     private const float totalSlideAmount = 0.54F;
     private float currSlideAmount = 0;
 
-    private const float cookTime = 6.2F;
+    private const float cookTime = 8F;
     private bool isCooking = false;
 
-    private const float woodenPlateRotateSpeed = 26F;
+    private const float woodenPlateRotateSpeed = 32F;
     private float currWoodenPlateRotation;
 
     private AudioSource audioSource;
@@ -73,6 +74,14 @@ public class MicroWave : MonoBehaviour {
 
     private void StartCooking() {
         isCooking = true;
+
+        Rat currRat = microWaveCollider.GetRatToCook();
+        if (currRat != null) {
+            currRat.DisableSelf();
+            currRat.transform.position = woodenPlate.transform.position;
+            currRat.transform.parent = woodenPlate.transform;
+        }
+
         TurnLightOn();
         audioSource.Stop();
         audioSource.clip = cookingAudioClip;
@@ -86,6 +95,13 @@ public class MicroWave : MonoBehaviour {
         audioSource.clip = dingAudioClip;
         audioSource.Play();
         TurnLightsOff();
+
+        Rat currRat = microWaveCollider.GetRatToCook();
+        if (currRat != null) {
+            currRat.transform.parent = null;
+            currRat.ReEnableSelf();
+        }
+
         isDoorClosed = false;
         isCooking = false;
     }

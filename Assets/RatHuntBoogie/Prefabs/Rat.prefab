@@ -250,7 +250,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 95932744186865647856589bfdccf651,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2237442878394859259}
+      addedObject: {fileID: 164819744062657094}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 95932744186865647856589bfdccf651,
         type: 3}
       insertIndex: -1
@@ -335,8 +335,8 @@ NavMeshAgent:
   m_BaseOffset: -0.32
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!136 &2237442878394859259
-CapsuleCollider:
+--- !u!65 &164819744062657094
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -353,11 +353,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.6
-  m_Height: 1.4
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.7, z: 0}
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.2, z: 1}
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!54 &8182505615110705890
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -384,7 +382,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!82 &3128158358811528882
 AudioSource:
   m_ObjectHideFlags: 0
