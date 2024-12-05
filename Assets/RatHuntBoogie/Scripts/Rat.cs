@@ -25,10 +25,13 @@ public class Rat : MonoBehaviour {
     private BoxCollider boxCollider;
     private Rigidbody rigidBody;
 
+    private const float fryCookTime = 6F;
+    private float fryCookTimeAcc = 0;
+
     [SerializeField] private GameObject iceCube;
     [SerializeField] private GameObject iceCubePositionHolder;
     private const float freezingTime = 6F;
-    private float freezingTimeAcc;
+    private float freezingTimeAcc = 0;
 
     public void Start() {
         _agent = GetComponent<NavMeshAgent>();
@@ -131,18 +134,7 @@ public class Rat : MonoBehaviour {
         _agent.enabled = value;
     }
 
-    public void AddFreezingTimeAcc(float value) {
-        freezingTimeAcc += value;
-        if (freezingTimeAcc >= freezingTime) {
-            Freeze();
-        }
-    }
-
-    public void ResetFreezingTimeAcc() {
-        freezingTimeAcc = 0;
-    }
-
-    public void ReEnableSelf() {
+    private void ReEnableSelf() {
         boxCollider.enabled = true;
         EnableRigidBody(true);
     }
@@ -159,6 +151,28 @@ public class Rat : MonoBehaviour {
         }
 
         ReEnableSelf();
+    }
+
+    public void AddFryCookTimeAcc(float value) {
+        fryCookTimeAcc += value;
+        if (fryCookTimeAcc >= fryCookTime) {
+            Cook();
+        }
+    }
+
+    public void ResetFryCookTimeAcc() {
+        fryCookTimeAcc = 0;
+    }
+
+    public void AddFreezingTimeAcc(float value) {
+        freezingTimeAcc += value;
+        if (freezingTimeAcc >= freezingTime) {
+            Freeze();
+        }
+    }
+
+    public void ResetFreezingTimeAcc() {
+        freezingTimeAcc = 0;
     }
 
     private void Freeze() {

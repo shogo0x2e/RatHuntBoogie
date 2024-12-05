@@ -32,4 +32,8 @@ public class FryCooker : MonoBehaviour {
             fireParticle.SetActive(false);
         }
     }
+
+    public bool IsOn() {
+        return isOn;
+    }
 }
