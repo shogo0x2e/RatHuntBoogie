@@ -153,6 +153,14 @@ public class Rat : MonoBehaviour {
         EnableRigidBody(false);
     }
 
+    public void Cook() {
+        if (IsFrozen()) {
+            RemoveFreeze(false);
+        }
+
+        ReEnableSelf();
+    }
+
     private void Freeze() {
         DisableSelf();
 
@@ -163,8 +171,10 @@ public class Rat : MonoBehaviour {
         iceCube.SetActive(true);
     }
 
-    private void RemoveFreeze() {
-        ReEnableSelf();
+    private void RemoveFreeze(bool reEnable) {
+        if (reEnable) {
+            ReEnableSelf();
+        }
 
         foreach (GameObject modelPart in modelParts) {
             modelPart.transform.parent = transform;

@@ -99,7 +99,7 @@ public class MicroWave : MonoBehaviour {
         Rat currRat = microWaveCollider.GetRatToCook();
         if (currRat != null) {
             currRat.transform.parent = null;
-            currRat.ReEnableSelf();
+            currRat.Cook();
         }
 
         isDoorClosed = false;
