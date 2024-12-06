@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/RatHuntBoogie/Scenes/Test/Shogo/MainScene.unity
     guid: 82e814d22ac784144a11a5e70259e7b1
+  - enabled: 1
+    path: Assets/RatHuntBoogie/Scenes/Test/Shogo/WalkingTest.unity
+    guid: be168685386f84741916aadc22543d5f
   m_configObjects:
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 9c81b531d3ff65e44ae239e2820295e3,
       type: 2}
