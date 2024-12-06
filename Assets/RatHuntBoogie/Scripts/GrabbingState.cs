@@ -8,7 +8,7 @@ public class GrabbingState : MonoBehaviour
 
     public void SetIsGrabbing(bool isGrabbing)
     {
-
+        Debug.Log("SETISGRABBING CALLED");
         ratHeadCollision.isGrabbed = isGrabbing;
     }
 }

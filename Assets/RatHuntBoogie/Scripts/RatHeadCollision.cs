@@ -6,7 +6,7 @@ public class RatHeadCollision : MonoBehaviour {
     [SerializeField] private GameObject _bloodEffect;
 
     public bool isGrabbed = false;
-
+   
     private void OnTriggerEnter(Collider other) {
         if (isGrabbed && other.CompareTag("Head")) {
             EatObject();
