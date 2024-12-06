@@ -35,14 +35,15 @@ public class WatchButton : MonoBehaviour {
     private int currStartIndex = 0;
     private float currTimeAcc = 0;
 
-    private Vector3 boogieParticleCenter;
     private float halfWidth;
     private float halfHeight;
+
+    private const float coolDownBeforePress = 0.2F;
+    private float coolDownBeforePressTimeAcc = 0;
 
     public void Start() {
         boogieSong = GetComponent<AudioSource>();
 
-        boogieParticleCenter = watchCenter.transform.position;
         halfWidth = Mathf.Abs(watchLeft.transform.localPosition.x);
         halfHeight = Mathf.Abs(watchUp.transform.localPosition.y);
 
@@ -50,6 +51,8 @@ public class WatchButton : MonoBehaviour {
     }
 
     public void Update() {
+        coolDownBeforePressTimeAcc += Time.deltaTime;
+
         if (!boogieText.enabled) {
             return;
         }
@@ -95,6 +98,12 @@ public class WatchButton : MonoBehaviour {
         if (!AllowTrigger(other)) {
             return;
         }
+
+        if (coolDownBeforePressTimeAcc < coolDownBeforePress) {
+            return;
+        }
+
+        coolDownBeforePressTimeAcc = 0;
 
         isPlaying = !isPlaying;
         if (isPlaying) {
