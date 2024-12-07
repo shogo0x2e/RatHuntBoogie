@@ -308,7 +308,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48576041}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &48576044
 Camera:
   m_ObjectHideFlags: 0
@@ -7300,7 +7300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &863955312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8415,7 +8415,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1176647808
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11954,12 +11954,12 @@ PrefabInstance:
     - target: {fileID: 4838275832756614570, guid: a45e17ab6eeba9949837e4087fa3c038,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.744
+      value: 2.624
       objectReference: {fileID: 0}
     - target: {fileID: 4838275832756614570, guid: a45e17ab6eeba9949837e4087fa3c038,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.869
+      value: 32.732
       objectReference: {fileID: 0}
     - target: {fileID: 4838275832756614570, guid: a45e17ab6eeba9949837e4087fa3c038,
         type: 3}
@@ -14423,23 +14423,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5859703797237282660, guid: edc59850933131c4899edce226293f9f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 3051965458980951319, guid: edc59850933131c4899edce226293f9f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 4415451215000256700, guid: edc59850933131c4899edce226293f9f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8712015779750610665, guid: edc59850933131c4899edce226293f9f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edc59850933131c4899edce226293f9f, type: 3}
 --- !u!4 &1787499922098141636 stripped
 Transform:

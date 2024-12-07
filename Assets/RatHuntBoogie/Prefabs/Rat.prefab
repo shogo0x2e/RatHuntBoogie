@@ -692,7 +692,7 @@ MonoBehaviour:
   - {fileID: 6296035282384437810}
   - {fileID: 2172228403718817407}
   iceCube: {fileID: 7006494568025035100}
-  iceCubePositionHolder: {fileID: 2478360983408158090}
+  iceCubeColliderHolder: {fileID: 2478360983408158090}
 --- !u!114 &8697890410782464036
 MonoBehaviour:
   m_ObjectHideFlags: 0
