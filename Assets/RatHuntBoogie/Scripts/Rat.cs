@@ -36,6 +36,8 @@ public class Rat : MonoBehaviour {
     private const float freezingTime = 6F;
     private float freezingTimeAcc = 0;
 
+    [SerializeField] private GameObject cookedLights;
+
     public void Start() {
         _agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
@@ -150,18 +152,9 @@ public class Rat : MonoBehaviour {
         EnableRigidBody(false);
     }
 
-    public void Cook() {
-        if (IsFrozen()) {
-            RemoveFreeze(false);
-        }
-
-        animator.enabled = false;
-        ReEnableSelf();
-    }
-
     public void AddFryCookTimeAcc(float value) {
         fryCookTimeAcc += value;
-        if (fryCookTimeAcc >= fryCookTime) {
+        if (!IsCooked() && fryCookTimeAcc >= fryCookTime) {
             Cook();
         }
     }
@@ -170,9 +163,26 @@ public class Rat : MonoBehaviour {
         fryCookTimeAcc = 0;
     }
 
+    public void Cook() {
+        if (IsFrozen()) {
+            RemoveFreeze(false);
+            ResetFryCookTimeAcc();
+            return;
+        }
+
+        animator.enabled = false;
+        cookedLights.SetActive(true);
+        SetLayerRecursively(gameObject);
+        ReEnableSelf();
+    }
+
+    private bool IsCooked() {
+        return cookedLights.activeSelf;
+    }
+
     public void AddFreezingTimeAcc(float value) {
         freezingTimeAcc += value;
-        if (freezingTimeAcc >= freezingTime) {
+        if (!IsFrozen() && freezingTimeAcc >= freezingTime) {
             Freeze();
         }
     }
@@ -214,5 +224,17 @@ public class Rat : MonoBehaviour {
     private void EnableRigidBody(bool doEnable) {
         rigidBody.isKinematic = !doEnable;
         // rigidBody.detectCollisions = doEnable;
+    }
+
+    private static void SetLayerRecursively(GameObject currObj) {
+        if (currObj.name.Contains("IceCube")) {
+            return;
+        }
+
+        currObj.layer = 6;
+
+        foreach (Transform child in currObj.transform) {
+            SetLayerRecursively(child.gameObject);
+        }
     }
 }
