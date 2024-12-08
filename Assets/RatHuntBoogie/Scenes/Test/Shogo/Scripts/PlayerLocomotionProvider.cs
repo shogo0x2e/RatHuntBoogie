@@ -104,7 +104,7 @@ public class PlayerLocomotionProvider : MonoBehaviour
         cameraForward.Normalize();
 
         // displacement is negative because the walking gesture is opposite to the camera's forward direction
-        Vector3 projectedDisplacement = Vector3.ProjectOnPlane(-displacement, Vector3.up); 9 =
+        Vector3 projectedDisplacement = Vector3.ProjectOnPlane(-displacement, Vector3.up);
         Vector3 forwardDisplacement = Vector3.Project(projectedDisplacement, cameraForward);
 
         // Ensure the player does not move backward
