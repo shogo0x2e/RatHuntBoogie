@@ -5,14 +5,15 @@ using UnityEngine;
 
 public class PawCollisionWithFloorDetection : DisplacementDetectable
 {
-    private float _displacement;
-    private Vector3 _previousContactPoint = Vector3.zero;
+    private Vector2 _displacementOnPlane;
+    private Vector2 _contactPoint;
+    private Vector2 _previousFrameContactPoint;
     private Material _colliderMaterial;
 
-    public override float GetDisplacement()
+    public override Vector2 GetDisplacement()
     {
-        float d = _displacement;
-        _displacement = 0;
+        var d = _displacementOnPlane;
+        // _displacementOnPlane = Vector2.zero;
         return d;
     }
 
@@ -30,9 +31,13 @@ public class PawCollisionWithFloorDetection : DisplacementDetectable
     {
         if (other.CompareTag("Floor"))
         {
-            Debug.Log($"MeshRenderer entered {other.gameObject.name}");
             _colliderMaterial.color = Color.red;
-            _previousContactPoint = other.ClosestPoint(transform.position);
+            var contactPoint3D = other.ClosestPoint(transform.position);
+            
+            var contactPoint2D = new Vector2(contactPoint3D.x, contactPoint3D.z);
+            _contactPoint = contactPoint2D;
+            _previousFrameContactPoint = contactPoint2D;
+            Debug.Log("Impl: Enter");
         }
     }
 
@@ -40,13 +45,12 @@ public class PawCollisionWithFloorDetection : DisplacementDetectable
     {
         if (other.CompareTag("Floor"))
         {
-            Vector3 currentPosition = other.ClosestPoint(transform.position);
-            Vector3 dVector = currentPosition - _previousContactPoint;
-            
-            _displacement += dVector.magnitude;
-            _previousContactPoint = currentPosition;
-            
-            Debug.Log($"MeshRenderer staying {_displacement}");
+            var currentPosition = transform.position;
+            var contactPoint3D = other.ClosestPoint(currentPosition);
+            var contactPoint2D = new Vector2(contactPoint3D.x, contactPoint3D.z);
+            _displacementOnPlane += (contactPoint2D - _previousFrameContactPoint);
+
+            Debug.Log($"Impl: {contactPoint2D} | {_previousFrameContactPoint}");
         }
     }
 
@@ -54,8 +58,8 @@ public class PawCollisionWithFloorDetection : DisplacementDetectable
     {
         if (other.CompareTag("Floor"))
         {
-            Debug.Log($"MeshRenderer exited {other.gameObject.name}");
             _colliderMaterial.color = Color.gray;
+            Debug.Log("Impl: Exit");
         }
     }
 }

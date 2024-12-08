@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/RatHuntBoogie/Scenes/Test/Shogo/MainScene.unity
     guid: 82e814d22ac784144a11a5e70259e7b1
   - enabled: 1
-    path: Assets/RatHuntBoogie/Scenes/Test/Shogo/WalkingTest.unity
-    guid: be168685386f84741916aadc22543d5f
+    path: Assets/RatHuntBoogie/Scenes/Test/Shogo/WalkingWithInteractorTest.unity
+    guid: ec48826e4b8854e3c95f46b4bc7dece2
   m_configObjects:
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 9c81b531d3ff65e44ae239e2820295e3,
       type: 2}

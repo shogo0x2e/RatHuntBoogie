@@ -2,5 +2,5 @@ using UnityEngine;
 
 public abstract class DisplacementDetectable : MonoBehaviour
 {
-    public abstract float GetDisplacement();
+    public abstract Vector2 GetDisplacement();
 }
