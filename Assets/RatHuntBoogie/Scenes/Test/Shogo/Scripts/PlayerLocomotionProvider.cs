@@ -11,24 +11,30 @@ public class PlayerLocomotionProvider : MonoBehaviour
         Left,
         Right
     };
-    
-    [SerializeField] 
+
+    [SerializeField]
     private GameObject _playerRig;
 
-    [SerializeField] 
+    [SerializeField]
     private Transform _cameraTransform;
 
-    [SerializeField] 
-    private Transform _controllingPlaneTransform;
-
-    [SerializeField] 
+    [SerializeField]
     private float _displacementThreshold = .01f;
-    
-    [SerializeField] [CanBeNull] 
+
+    [SerializeField]
+    private float _noiseThreshold = .002f;
+
+    [SerializeField]
+    private float _movementMultiplier = 10f;
+
+    [SerializeField, CanBeNull]
     private TextMeshProUGUI _debugText;
 
-    [SerializeField] [CanBeNull] 
-    private GameObject _debugMarkerPrefab;
+    // [SerializeField] [CanBeNull] 
+    // private TextMeshProUGUI _debugText;
+    //
+    // [SerializeField] [CanBeNull] 
+    // private GameObject _debugMarkerPrefab;
 
     private Vector3 _interactorLeftHandAnchorLocalPosition;
     private Vector3 _interactorRightHandAnchorLocalPosition;
@@ -36,33 +42,24 @@ public class PlayerLocomotionProvider : MonoBehaviour
     private Transform _playerRigTransform;
     private Rigidbody _playerRigRigidbody;
 
-    private DateTime _accelarationStartTime;
-
-    private float _RightHandDisplacement;
-
     private void Start()
     {
         _playerRigTransform = _playerRig.transform;
         _playerRigRigidbody = _playerRig.GetComponent<Rigidbody>();
     }
 
-    private void Update()
-    {
-        _debugText.text = $"RightHandDisplacement: {_RightHandDisplacement}";
-    }
-    
     public void StartWalkingGrab(Transform interactorTransform, Hand side)
     {
         _playerRigRigidbody.velocity = Vector3.zero;
-        
+
         switch (side)
         {
             case Hand.Left:
-                _interactorLeftHandAnchorLocalPosition = 
+                _interactorLeftHandAnchorLocalPosition =
                     _playerRigTransform.InverseTransformPoint(interactorTransform.position);
                 break;
             case Hand.Right:
-                _interactorRightHandAnchorLocalPosition = 
+                _interactorRightHandAnchorLocalPosition =
                     _playerRigTransform.InverseTransformPoint(interactorTransform.position);
                 break;
         }
@@ -71,7 +68,7 @@ public class PlayerLocomotionProvider : MonoBehaviour
     public void StepWalkingMovement(Transform interactorTransform, Hand side)
     {
         var interactorWorldPosition = interactorTransform.position;
-        
+
         switch (side)
         {
             case Hand.Left:
@@ -80,26 +77,21 @@ public class PlayerLocomotionProvider : MonoBehaviour
 
                 _interactorLeftHandAnchorLocalPosition = interactorLeftHandLocalPosition;
 
-                if (displacementLeft.magnitude > 0.002f)
+                if (displacementLeft.magnitude > _noiseThreshold)
                 {
                     Step(displacementLeft);
                 }
                 break;
-            
+
             case Hand.Right:
                 var interactorRightHandLocalPosition = _playerRigTransform.InverseTransformPoint(interactorWorldPosition);
                 var displacementRight = (interactorRightHandLocalPosition - _interactorRightHandAnchorLocalPosition);
 
                 _interactorRightHandAnchorLocalPosition = interactorRightHandLocalPosition;
 
-                _RightHandDisplacement = displacementRight.magnitude;
-                if (displacementRight.magnitude > 0.002f)
+                if (displacementRight.magnitude > _noiseThreshold)
                 {
                     Step(displacementRight);
-                }
-                else
-                {
-                    _RightHandDisplacement = 0;
                 }
                 break;
         }
@@ -107,6 +99,18 @@ public class PlayerLocomotionProvider : MonoBehaviour
 
     private void Step(Vector3 displacement)
     {
-        _playerRigTransform.position -= new Vector3(displacement.x, 0, displacement.z) * 10;
+        Vector3 cameraForward = _cameraTransform.forward;
+        cameraForward.y = 0;
+        cameraForward.Normalize();
+
+        // displacement is negative because the walking gesture is opposite to the camera's forward direction
+        Vector3 projectedDisplacement = Vector3.ProjectOnPlane(-displacement, Vector3.up); 9 =
+        Vector3 forwardDisplacement = Vector3.Project(projectedDisplacement, cameraForward);
+
+        // Ensure the player does not move backward
+        if (Vector3.Dot(forwardDisplacement, cameraForward) > 0)
+        {
+            _playerRigTransform.position += forwardDisplacement * _movementMultiplier;
+        }
     }
 }
