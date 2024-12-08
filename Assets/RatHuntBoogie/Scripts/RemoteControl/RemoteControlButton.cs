@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 public class RemoteControlButton : MonoBehaviour {
@@ -24,7 +23,7 @@ public class RemoteControlButton : MonoBehaviour {
             : new Vector3(btBasePosition.x, btPressedY, btBasePosition.z);
     }
 
-    public void OnTriggerEnter(Collider other) {
+    public void OnTriggerEnterX(Collider other) {
         if (isPressed) {
             return;
         }
@@ -41,7 +40,7 @@ public class RemoteControlButton : MonoBehaviour {
         isPressed = true;
     }
 
-    public void OnTriggerExit(Collider other) {
+    public void OnTriggerExitX(Collider other) {
         if (other.gameObject != srcPresser) {
             return;
         }

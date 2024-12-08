@@ -1228,6 +1228,11 @@ PrefabInstance:
       propertyPath: attachedObjects.Array.data[0]
       value: 
       objectReference: {fileID: 637614386042565266}
+    - target: {fileID: 6683891501665711201, guid: 76de484ba0894dd4c9938b13729c9285,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8578870795388132367, guid: 76de484ba0894dd4c9938b13729c9285,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1327,6 +1332,11 @@ PrefabInstance:
       propertyPath: attachedObjects.Array.data[0]
       value: 
       objectReference: {fileID: 637614386042565266}
+    - target: {fileID: 6683891501665711201, guid: 76de484ba0894dd4c9938b13729c9285,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8578870795388132367, guid: 76de484ba0894dd4c9938b13729c9285,
         type: 3}
       propertyPath: m_LocalScale.x
