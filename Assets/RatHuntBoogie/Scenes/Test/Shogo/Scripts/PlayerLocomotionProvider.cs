@@ -42,6 +42,8 @@ public class PlayerLocomotionProvider : MonoBehaviour
     private Transform _playerRigTransform;
     private Rigidbody _playerRigRigidbody;
 
+    public bool IsWalkingDisabled { get; set; } = false;
+
     private void Start()
     {
         _playerRigTransform = _playerRig.transform;
@@ -67,6 +69,8 @@ public class PlayerLocomotionProvider : MonoBehaviour
 
     public void StepWalkingMovement(Transform interactorTransform, Hand side)
     {
+        if (IsWalkingDisabled) return;
+        
         var interactorWorldPosition = interactorTransform.position;
 
         switch (side)
@@ -95,6 +99,12 @@ public class PlayerLocomotionProvider : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    public void Jump()
+    {
+        _playerRigRigidbody.AddForce(_cameraTransform.forward, ForceMode.Impulse);
+        _playerRigRigidbody.AddExplosionForce(250f, _playerRigTransform.position, 10f);
     }
 
     private void Step(Vector3 displacement)
