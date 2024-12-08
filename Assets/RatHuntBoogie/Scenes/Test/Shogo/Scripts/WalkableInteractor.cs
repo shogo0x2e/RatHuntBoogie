@@ -8,6 +8,9 @@ public class WalkableInteractor : MonoBehaviour
     [SerializeField] 
     private PlayerLocomotionProvider _locomotionProvider;
 
+    [SerializeField]
+    private PlayerLocomotionProvider.Hand _handSide;
+
     private bool _isGrabbing = false;
     private Material _material;
 
@@ -18,7 +21,8 @@ public class WalkableInteractor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        _locomotionProvider.StartWalkingGrab(transform);
+        if (!other.CompareTag("Floor")) return;
+        _locomotionProvider.StartWalkingGrab(transform, _handSide);
         _isGrabbing = true;
     }
 
@@ -27,12 +31,13 @@ public class WalkableInteractor : MonoBehaviour
         _material.color = _isGrabbing ? Color.green : Color.gray;
         if (_isGrabbing)
         {
-            _locomotionProvider.StepWalkingMovement(transform);
+            _locomotionProvider.StepWalkingMovement(transform, _handSide);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if (!other.CompareTag("Floor")) return;
         _isGrabbing = false;
     }
 }
