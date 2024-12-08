@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lowPassFilterFactor: 0.7
   tableHeight: 0.73
-  pawRayLength: 0.03
+  pawRayLength: 0.05
