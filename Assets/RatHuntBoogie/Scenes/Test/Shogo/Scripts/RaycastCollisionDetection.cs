@@ -19,7 +19,7 @@ public class RaycastCollisionDetection : MonoBehaviour
         
         RaycastHit hit;
         
-        if (Physics.Raycast(ray, out hit, _pawInputData.pawRayLength))
+        if (Physics.SphereCast(thisPosition, .05f, direction, out hit, .1f))
         {
             if (!_hasCollided)
             {
