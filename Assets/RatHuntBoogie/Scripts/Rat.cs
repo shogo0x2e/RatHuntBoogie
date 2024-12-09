@@ -135,13 +135,13 @@ public class Rat : MonoBehaviour {
     }
 
     private void ReEnableSelf() {
-        boxCollider.enabled = true;
+        // boxCollider.enabled = true;
         EnableRigidBody(true);
     }
 
     public void DisableSelf() {
         animator.enabled = false;
-        boxCollider.enabled = false;
+        // boxCollider.enabled = false;
         EnableRigidBody(false);
     }
 
@@ -155,6 +155,7 @@ public class Rat : MonoBehaviour {
 
     public void AddFryCookTimeAcc(float value) {
         fryCookTimeAcc += value;
+        Debug.Log(fryCookTimeAcc);
         if (fryCookTimeAcc >= fryCookTime) {
             Cook();
         }
@@ -203,6 +204,6 @@ public class Rat : MonoBehaviour {
 
     private void EnableRigidBody(bool value) {
         rigidBody.isKinematic = !value;
-        rigidBody.detectCollisions = value;
+        // rigidBody.detectCollisions = value;
     }
 }
