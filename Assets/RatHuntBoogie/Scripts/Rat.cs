@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 public class Rat : MonoBehaviour {
     private Animator animator;
@@ -22,16 +23,20 @@ public class Rat : MonoBehaviour {
     [SerializeField] private bool canMove = true;
 
     [SerializeField] private GameObject[] modelParts;
-    private BoxCollider boxCollider;
+    private Collider ratCollider;
     private Rigidbody rigidBody;
 
     private const float fryCookTime = 6F;
     private float fryCookTimeAcc = 0;
 
     [SerializeField] private GameObject iceCube;
-    [SerializeField] private GameObject iceCubePositionHolder;
+
+    [SerializeField] private GameObject iceCubeColliderHolder;
+
     private const float freezingTime = 6F;
     private float freezingTimeAcc = 0;
+
+    [SerializeField] private GameObject cookedLights;
 
     public void Start() {
         _agent = GetComponent<NavMeshAgent>();
@@ -40,8 +45,10 @@ public class Rat : MonoBehaviour {
         randomMoveTimer = Random.Range(1.0f, 10.0f);
         jumpTimer = Random.Range(jumpIntervalMin, jumpIntervalMax);
 
-        boxCollider = GetComponent<BoxCollider>();
+        ratCollider = GetComponent<Collider>();
         rigidBody = GetComponent<Rigidbody>();
+
+        Physics.IgnoreCollision(ratCollider, iceCubeColliderHolder.GetComponent<Collider>());
 
         SetCanMove(canMove);
     }
@@ -135,27 +142,19 @@ public class Rat : MonoBehaviour {
     }
 
     private void ReEnableSelf() {
-        boxCollider.enabled = true;
+        ratCollider.enabled = true;
         EnableRigidBody(true);
     }
 
     public void DisableSelf() {
         animator.enabled = false;
-        boxCollider.enabled = false;
+        // ratCollider.enabled = false;
         EnableRigidBody(false);
-    }
-
-    public void Cook() {
-        if (IsFrozen()) {
-            RemoveFreeze(false);
-        }
-
-        ReEnableSelf();
     }
 
     public void AddFryCookTimeAcc(float value) {
         fryCookTimeAcc += value;
-        if (fryCookTimeAcc >= fryCookTime) {
+        if (!IsCooked() && fryCookTimeAcc >= fryCookTime) {
             Cook();
         }
     }
@@ -164,9 +163,26 @@ public class Rat : MonoBehaviour {
         fryCookTimeAcc = 0;
     }
 
+    public void Cook() {
+        if (IsFrozen()) {
+            RemoveFreeze(false);
+            ResetFryCookTimeAcc();
+            return;
+        }
+
+        animator.enabled = false;
+        cookedLights.SetActive(true);
+        SetLayerRecursively(gameObject);
+        ReEnableSelf();
+    }
+
+    private bool IsCooked() {
+        return cookedLights.activeSelf;
+    }
+
     public void AddFreezingTimeAcc(float value) {
         freezingTimeAcc += value;
-        if (freezingTimeAcc >= freezingTime) {
+        if (!IsFrozen() && freezingTimeAcc >= freezingTime) {
             Freeze();
         }
     }
@@ -178,9 +194,11 @@ public class Rat : MonoBehaviour {
     private void Freeze() {
         DisableSelf();
 
-        foreach (GameObject modelPart in modelParts) {
-            modelPart.transform.parent = iceCubePositionHolder.transform;
-        }
+        // foreach (GameObject modelPart in modelParts) {
+        //     modelPart.transform.parent = iceCubePositionHolder.transform;
+        // }
+        iceCube.transform.parent = null;
+        transform.parent = iceCubeColliderHolder.transform;
 
         iceCube.SetActive(true);
     }
@@ -190,9 +208,11 @@ public class Rat : MonoBehaviour {
             ReEnableSelf();
         }
 
-        foreach (GameObject modelPart in modelParts) {
-            modelPart.transform.parent = transform;
-        }
+        // foreach (GameObject modelPart in modelParts) {
+        //     modelPart.transform.parent = transform;
+        // }
+        transform.parent = null;
+        iceCube.transform.parent = transform;
 
         iceCube.SetActive(false);
     }
@@ -201,8 +221,20 @@ public class Rat : MonoBehaviour {
         return iceCube.activeSelf;
     }
 
-    private void EnableRigidBody(bool value) {
-        rigidBody.isKinematic = !value;
-        rigidBody.detectCollisions = value;
+    private void EnableRigidBody(bool doEnable) {
+        rigidBody.isKinematic = !doEnable;
+        // rigidBody.detectCollisions = doEnable;
+    }
+
+    private static void SetLayerRecursively(GameObject currObj) {
+        if (currObj.name.Contains("IceCube")) {
+            return;
+        }
+
+        currObj.layer = 6;
+
+        foreach (Transform child in currObj.transform) {
+            SetLayerRecursively(child.gameObject);
+        }
     }
 }
