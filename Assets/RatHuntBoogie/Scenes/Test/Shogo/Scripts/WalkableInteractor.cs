@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WalkableInteractor : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     private PlayerLocomotionProvider _locomotionProvider;
 
     [SerializeField]
@@ -26,7 +26,7 @@ public class WalkableInteractor : MonoBehaviour
         _isGrabbing = true;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         _material.color = _isGrabbing ? Color.green : Color.gray;
         if (_isGrabbing)

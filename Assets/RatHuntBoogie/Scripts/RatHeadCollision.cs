@@ -21,14 +21,14 @@ public class RatHeadCollision : MonoBehaviour {
         }
 
         _bloodEffect.SetActive(true);
-        StartCoroutine(DisableBloodEffectAfterDelay());
+        //StartCoroutine(DisableBloodEffectAfterDelay());
         Watch.GetInstance().AddScore(200);
 
         isDead = true;
     }
 
     private IEnumerator DisableBloodEffectAfterDelay() {
-        yield return new WaitForSeconds(1F);
+        yield return new WaitForSeconds(2F);
         _bloodEffect.SetActive(false);
     }
 }
