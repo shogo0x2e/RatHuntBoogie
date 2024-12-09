@@ -4041,6 +4041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pawInputData: {fileID: 11400000, guid: f7e154bf0a4504b01905e9c4a9773227, type: 2}
+  _debugDiffText: {fileID: 0}
   _player: {fileID: 863955313}
   _cameraTransform: {fileID: 2084483781}
 --- !u!1001 &200235365
@@ -6539,8 +6540,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScreenTV
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5320761432694476481, guid: d0dab663ca926334893ce6b419d735dc, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11973,6 +11973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pawInputData: {fileID: 11400000, guid: f7e154bf0a4504b01905e9c4a9773227, type: 2}
+  _debugDiffText: {fileID: 0}
   _player: {fileID: 863955313}
   _cameraTransform: {fileID: 2084483781}
 --- !u!1 &1597244011
