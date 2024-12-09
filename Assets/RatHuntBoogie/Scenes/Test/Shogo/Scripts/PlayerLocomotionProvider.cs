@@ -27,15 +27,6 @@ public class PlayerLocomotionProvider : MonoBehaviour
     [SerializeField]
     private float _movementMultiplier = 10f;
 
-    [SerializeField, CanBeNull]
-    private TextMeshProUGUI _debugText;
-
-    // [SerializeField] [CanBeNull] 
-    // private TextMeshProUGUI _debugText;
-    //
-    // [SerializeField] [CanBeNull] 
-    // private GameObject _debugMarkerPrefab;
-
     private Vector3 _interactorLeftHandAnchorLocalPosition;
     private Vector3 _interactorRightHandAnchorLocalPosition;
 
