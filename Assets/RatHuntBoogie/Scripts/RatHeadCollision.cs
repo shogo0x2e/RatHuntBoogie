@@ -7,6 +7,8 @@ public class RatHeadCollision : MonoBehaviour {
 
     public bool isGrabbed = false;
 
+    private bool isDead = false;
+
     private void OnTriggerEnter(Collider other) {
         if (isGrabbed && other.CompareTag("Head")) {
             EatObject();
@@ -14,13 +16,19 @@ public class RatHeadCollision : MonoBehaviour {
     }
 
     private void EatObject() {
-        // Implement the logic for "eating" the object
-        // For example, play a sound, animation, or update score
+        if (isDead) {
+            return;
+        }
+
         _bloodEffect.SetActive(true);
+        StartCoroutine(DisableBloodEffectAfterDelay());
+        Watch.GetInstance().AddScore(200);
 
-        // Destroy the object (simulate being "eaten")
-        Destroy(gameObject, 1f);
+        isDead = true;
+    }
 
-        Watch.GetInstance().AddScore(100);
+    private IEnumerator DisableBloodEffectAfterDelay() {
+        yield return new WaitForSeconds(1F);
+        _bloodEffect.SetActive(false);
     }
 }
