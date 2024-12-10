@@ -27,11 +27,19 @@ public class PlayerLocomotionProvider : MonoBehaviour
     [SerializeField]
     private float _movementMultiplier = 10f;
 
+    [SerializeField]
+    private float _jumpUpMultiplier = 250f;
+
+    [SerializeField]
+    private float _jumpForwardMultiplier = 1f;
+
     private Vector3 _interactorLeftHandAnchorLocalPosition;
     private Vector3 _interactorRightHandAnchorLocalPosition;
 
     private Transform _playerRigTransform;
     private Rigidbody _playerRigRigidbody;
+
+
 
     public bool IsWalkingDisabled { get; set; } = false;
 
@@ -94,8 +102,8 @@ public class PlayerLocomotionProvider : MonoBehaviour
 
     public void Jump()
     {
-        _playerRigRigidbody.AddForce(_cameraTransform.forward, ForceMode.Impulse);
-        _playerRigRigidbody.AddExplosionForce(250f, _playerRigTransform.position, 10f);
+        _playerRigRigidbody.AddForce(_cameraTransform.forward * _jumpForwardMultiplier, ForceMode.Impulse);
+        _playerRigRigidbody.AddExplosionForce(_jumpUpMultiplier, _playerRigTransform.position, 10f);
     }
 
     private void Step(Vector3 displacement)
