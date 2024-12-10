@@ -15818,6 +15818,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorWithHole
       objectReference: {fileID: 0}
+    - target: {fileID: 4822725119244924654, guid: 05eb76f28927c70409e66e322d119bdc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822725119244924654, guid: 05eb76f28927c70409e66e322d119bdc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101834258878383013, guid: 05eb76f28927c70409e66e322d119bdc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101834258878383013, guid: 05eb76f28927c70409e66e322d119bdc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.86
+      objectReference: {fileID: 0}
     - target: {fileID: 6291780332584383437, guid: 05eb76f28927c70409e66e322d119bdc,
         type: 3}
       propertyPath: m_Mesh
