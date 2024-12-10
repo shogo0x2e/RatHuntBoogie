@@ -6047,7 +6047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb770617851c432d994e09097820281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _locomotionProvider: {fileID: 0}
+  _locomotionProvider: {fileID: 2067514403}
   _handSide: 1
 --- !u!65 &873750666
 BoxCollider:
@@ -11673,7 +11673,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -13481,7 +13481,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.32, z: 0}
 --- !u!43 &1717798529
 Mesh:
   m_ObjectHideFlags: 0
@@ -14704,7 +14704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb770617851c432d994e09097820281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _locomotionProvider: {fileID: 0}
+  _locomotionProvider: {fileID: 2067514403}
   _handSide: 0
 --- !u!65 &1933450516
 BoxCollider:
