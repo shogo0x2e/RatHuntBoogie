@@ -61,7 +61,7 @@ public class PlayerLocomotionProvider : MonoBehaviour
     public void StepWalkingMovement(Transform interactorTransform, Hand side)
     {
         if (IsWalkingDisabled) return;
-        
+
         var interactorWorldPosition = interactorTransform.position;
 
         switch (side)
