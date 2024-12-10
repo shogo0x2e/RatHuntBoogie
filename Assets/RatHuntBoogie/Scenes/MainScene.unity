@@ -620,8 +620,8 @@ Transform:
   m_GameObject: {fileID: 136423629}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 1, z: 0.1}
+  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalScale: {x: 0.1, y: 1.5, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 631971904}
@@ -11096,8 +11096,8 @@ Transform:
   m_GameObject: {fileID: 873750663}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.01, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.08, z: 0.01}
+  m_LocalPosition: {x: 0, y: -0.03, z: 0}
+  m_LocalScale: {x: 0.01, y: 0.15, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1263884948}
@@ -16864,6 +16864,7 @@ GameObject:
   - component: {fileID: 1446555906}
   - component: {fileID: 1446555905}
   - component: {fileID: 1446555904}
+  - component: {fileID: 1446555907}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -16991,6 +16992,21 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1446555902}
   m_Enabled: 1
+--- !u!114 &1446555907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446555902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b364046f0544787af0b9c731fd9f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tableHeight: 0.74
+  _touchingCollider: {fileID: 1715701780}
+  _playerRigVR: {fileID: 1424807606}
 --- !u!1001 &1510270352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18620,7 +18636,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.001
   m_Height: 0.2
   m_Direction: 1
   m_Center: {x: 0, y: -0.2, z: 0}
@@ -19829,8 +19845,8 @@ Transform:
   m_GameObject: {fileID: 1933450513}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.01, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.1, z: 0.01}
+  m_LocalPosition: {x: 0, y: 0.03, z: 0}
+  m_LocalScale: {x: 0.01, y: 0.15, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1014420605}

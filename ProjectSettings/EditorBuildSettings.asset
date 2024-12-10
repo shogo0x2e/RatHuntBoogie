@@ -5,12 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/RatHuntBoogie/Scenes/MainScene.unity
     guid: 136d991ea7475464bb9c09b347d55815
-  - enabled: 1
-    path: Assets/RatHuntBoogie/Scenes/Test/Shogo/MainScene.unity
-    guid: 11356bc412bd14dda85ddd45324c6c36
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 8a159f6a27394464e9df94b753a5b12c,
       type: 2}

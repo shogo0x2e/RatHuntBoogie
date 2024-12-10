@@ -14,8 +14,6 @@ public class HeightWithActualTableAdjustment : MonoBehaviour
     [SerializeField] 
     private Transform _playerRigVR;
 
-    [SerializeField] private TextMeshProUGUI _debugText;
-
     // Update is called once per frame
     void Update()
     {
@@ -28,6 +26,5 @@ public class HeightWithActualTableAdjustment : MonoBehaviour
             -(headHeightFromActualFloor - _tableHeight - colliderOffset),
             colliderCenter.z
         );
-        _debugText.text = $"{headHeightFromActualFloor - _tableHeight}";
     }
 }
