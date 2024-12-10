@@ -89,7 +89,7 @@ public class WatchButton : MonoBehaviour {
             return;
         }
 
-        if (Random.Range(0F, 1F) < 0.076F) {
+        if (Random.Range(0F, 1F) < 0.056F) {
             SpawnBoogieParticle();
         }
     }
