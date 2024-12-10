@@ -19,7 +19,7 @@ public class PlayerTest : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    public void Update() {
+    public void FixedUpdate() {
         // Handle player movement
         MovePlayer();
 
@@ -45,6 +45,7 @@ public class PlayerTest : MonoBehaviour {
 
         // Apply movement
         rb.MovePosition(rb.position + moveSpeed * Time.deltaTime * moveDirection);
+        // rb.AddForce(moveSpeed * Time.deltaTime * moveDirection);
     }
 
     private void RotateCamera() {
