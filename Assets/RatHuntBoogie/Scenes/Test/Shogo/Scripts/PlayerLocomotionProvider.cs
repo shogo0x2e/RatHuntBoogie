@@ -111,8 +111,11 @@ public class PlayerLocomotionProvider : MonoBehaviour
         // Ensure the player does not move backward
         if (Vector3.Dot(forwardDisplacement, cameraForward) > 0)
         {
-            _playerRigRigidbody.MovePosition(_playerRigTransform.position + (forwardDisplacement * _movementMultiplier));
-            //_playerRigTransform.position += forwardDisplacement * _movementMultiplier;
+            Vector3 forwardDisplacementOnPlane = new Vector3(forwardDisplacement.x, 0, forwardDisplacement.z);
+            _playerRigRigidbody.MovePosition(
+                _playerRigTransform.position + (forwardDisplacementOnPlane * _movementMultiplier)
+            );
+            // _playerRigTransform.position += forwardDisplacement * _movementMultiplier;
         }
     }
 }
