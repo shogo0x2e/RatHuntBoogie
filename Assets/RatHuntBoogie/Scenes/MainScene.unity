@@ -3479,6 +3479,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 868433997}
     m_Modifications:
+    - target: {fileID: 377519244937737485, guid: 29a41defd0c83fb47bf109ec61d1c15c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 5151544261054156073, guid: 29a41defd0c83fb47bf109ec61d1c15c,
         type: 3}
       propertyPath: m_Name
@@ -3533,6 +3538,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5925726014836605674, guid: 29a41defd0c83fb47bf109ec61d1c15c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 7662647742050226329, guid: 29a41defd0c83fb47bf109ec61d1c15c,
         type: 3}
@@ -4602,7 +4612,7 @@ PrefabInstance:
     - target: {fileID: 4023700287366656838, guid: 599b5829240bc5244aa20ec3be3be126,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.470001
+      value: -15.103
       objectReference: {fileID: 0}
     - target: {fileID: 4023700287366656838, guid: 599b5829240bc5244aa20ec3be3be126,
         type: 3}
@@ -7174,7 +7184,7 @@ GameObject:
   - component: {fileID: 1044293615}
   m_Layer: 0
   m_Name: Support
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16061,6 +16071,8 @@ MonoBehaviour:
   _displacementThreshold: 0.01
   _noiseThreshold: 0.002
   _movementMultiplier: 10
+  _jumpUpMultiplier: 250
+  _jumpForwardMultiplier: 1
 --- !u!4 &2067514404
 Transform:
   m_ObjectHideFlags: 0
