@@ -27,20 +27,13 @@ public class PlayerLocomotionProvider : MonoBehaviour
     [SerializeField]
     private float _movementMultiplier = 10f;
 
-    [SerializeField, CanBeNull]
-    private TextMeshProUGUI _debugText;
-
-    // [SerializeField] [CanBeNull] 
-    // private TextMeshProUGUI _debugText;
-    //
-    // [SerializeField] [CanBeNull] 
-    // private GameObject _debugMarkerPrefab;
-
     private Vector3 _interactorLeftHandAnchorLocalPosition;
     private Vector3 _interactorRightHandAnchorLocalPosition;
 
     private Transform _playerRigTransform;
     private Rigidbody _playerRigRigidbody;
+
+    public bool IsWalkingDisabled { get; set; } = false;
 
     private void Start()
     {
@@ -67,6 +60,8 @@ public class PlayerLocomotionProvider : MonoBehaviour
 
     public void StepWalkingMovement(Transform interactorTransform, Hand side)
     {
+        if (IsWalkingDisabled) return;
+
         var interactorWorldPosition = interactorTransform.position;
 
         switch (side)
@@ -97,6 +92,12 @@ public class PlayerLocomotionProvider : MonoBehaviour
         }
     }
 
+    public void Jump()
+    {
+        _playerRigRigidbody.AddForce(_cameraTransform.forward, ForceMode.Impulse);
+        _playerRigRigidbody.AddExplosionForce(250f, _playerRigTransform.position, 10f);
+    }
+
     private void Step(Vector3 displacement)
     {
         Vector3 cameraForward = _cameraTransform.forward;
@@ -110,8 +111,11 @@ public class PlayerLocomotionProvider : MonoBehaviour
         // Ensure the player does not move backward
         if (Vector3.Dot(forwardDisplacement, cameraForward) > 0)
         {
-            _playerRigRigidbody.MovePosition(_playerRigTransform.position + (forwardDisplacement * _movementMultiplier));
-            //_playerRigTransform.position += forwardDisplacement * _movementMultiplier;
+            Vector3 forwardDisplacementOnPlane = new Vector3(forwardDisplacement.x, 0, forwardDisplacement.z);
+            _playerRigRigidbody.MovePosition(
+                _playerRigTransform.position + (forwardDisplacementOnPlane * _movementMultiplier)
+            );
+            // _playerRigTransform.position += forwardDisplacement * _movementMultiplier;
         }
     }
 }
