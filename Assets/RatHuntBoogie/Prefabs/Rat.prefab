@@ -3702,6 +3702,7 @@ MonoBehaviour:
   iceCube: {fileID: 7006494568025035100}
   iceCubeColliderHolder: {fileID: 2478360983408158090}
   cookedLights: {fileID: 4941370472074587143}
+  eyes: {fileID: 2172228403718817407}
 --- !u!114 &8697890410782464036
 MonoBehaviour:
   m_ObjectHideFlags: 0
