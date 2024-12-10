@@ -147,7 +147,7 @@ public class Rat : MonoBehaviour {
     }
 
     public void DisableSelf() {
-        animator.enabled = false;
+        DisableAnimation();
         // ratCollider.enabled = false;
         EnableRigidBody(false);
     }
@@ -170,7 +170,7 @@ public class Rat : MonoBehaviour {
             return;
         }
 
-        animator.enabled = false;
+        DisableAnimation();
         cookedLights.SetActive(true);
         SetLayerRecursively(gameObject);
         ReEnableSelf();
@@ -224,6 +224,10 @@ public class Rat : MonoBehaviour {
     private void EnableRigidBody(bool doEnable) {
         rigidBody.isKinematic = !doEnable;
         // rigidBody.detectCollisions = doEnable;
+    }
+
+    public void DisableAnimation() {
+        animator.enabled = false;
     }
 
     private static void SetLayerRecursively(GameObject currObj) {
