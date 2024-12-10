@@ -24,6 +24,8 @@ public class RatHeadCollision : MonoBehaviour {
             return;
         }
 
+        rat.SetCanMove(false);
+        rat.HideEyes();
         rat.DisableAnimation();
         _bloodEffect.SetActive(true);
         StartCoroutine(DisableBloodEffectAfterDelay());

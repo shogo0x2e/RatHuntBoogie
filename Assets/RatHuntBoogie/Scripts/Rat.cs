@@ -38,6 +38,8 @@ public class Rat : MonoBehaviour {
 
     [SerializeField] private GameObject cookedLights;
 
+    [SerializeField] private GameObject eyes;
+
     public void Start() {
         _agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
@@ -136,7 +138,7 @@ public class Rat : MonoBehaviour {
         }
     }
 
-    private void SetCanMove(bool value) {
+    public void SetCanMove(bool value) {
         canMove = value;
         _agent.enabled = value;
     }
@@ -228,6 +230,10 @@ public class Rat : MonoBehaviour {
 
     public void DisableAnimation() {
         animator.enabled = false;
+    }
+
+    public void HideEyes() {
+        eyes.SetActive(false);
     }
 
     private static void SetLayerRecursively(GameObject currObj) {
