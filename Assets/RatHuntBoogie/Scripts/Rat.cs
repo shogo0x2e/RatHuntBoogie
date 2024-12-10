@@ -136,7 +136,7 @@ public class Rat : MonoBehaviour {
         }
     }
 
-    private void SetCanMove(bool value) {
+    public void SetCanMove(bool value) {
         canMove = value;
         _agent.enabled = value;
     }
