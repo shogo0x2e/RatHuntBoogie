@@ -4,6 +4,12 @@ using UnityEngine;
 public class Plate : MonoBehaviour {
     [SerializeField] private GameObject[] fracturePieces;
 
+    private AudioSource breakSound;
+
+    public void Start() {
+        breakSound = fracturePieces[0].GetComponent<AudioSource>();
+    }
+
     public void OnCollisionEnter(Collision other) {
         if (other.gameObject.name.Contains("Paw")) {
             return;
@@ -26,6 +32,8 @@ public class Plate : MonoBehaviour {
             Rigidbody fpRb = fracturePiece.GetComponent<Rigidbody>();
             fpRb.AddExplosionForce(colForce * 6F, colPoint, 6F);
         }
+
+        breakSound.Play();
 
         Destroy(gameObject);
     }

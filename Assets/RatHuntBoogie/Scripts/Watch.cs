@@ -15,7 +15,7 @@ public class Watch : MonoBehaviour {
     [SerializeField] private TextMeshPro midText; // Score
     [SerializeField] private TextMeshPro botText; // Wathever
 
-    private const float gameDuration = 120F;
+    private const float gameDuration = 300F;
     private float remTime = gameDuration;
 
     private int currScore = 0;
